@@ -1,25 +1,859 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?page 
+    id="indexPage" title=" Textile Dynamic CRM Application" contentType="text/html;charset=UTF-8" cacheable="false"
+    language="xul/html" zscriptLanguage="Java"?>
 
 <!--
-index.zul
-
-{{IS_NOTE
-	Purpose:
-		
-	Description:
-		 
-	History:
-		Mon Jun 12 21:23:35     2006, Created by tomyeh
-		Fri May 01 04:36:35     2009, Modified by stera
-}}IS_NOTE
-
-Copyright (C) 2006 Potix Corporation. All Rights Reserved.
-
-{{IS_RIGHT
-}}IS_RIGHT
+        <?meta content="text/html; charset=UTF-8" 	pageEncoding="UTF-8"?>
 -->
-<zk xmlns="http://www.zkoss.org/2005/zul">
-    <window>
-	My ZK application
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <script type="text/javascript">
+        <!-- Function for scrolling the text -->
+        <!-- thanks to dagarwal82; http://www.zkoss.org/forum/listComment/16011 -->
+
+		<![CDATA[ function scrollTextbox(txtBox) { var txtEle =
+		document.getElementById(txtBox); txtEle.scrollTop =
+		txtEle.scrollHeight; } ]]>
+
+    </script>
+
+    <window id="outerIndexWindow" apply="IndexController" border="none"
+            width="100%" height="100%">
+
+        <style>
+            body { padding: 0 0; /* 0 padding on top and bottom and 0
+            padding on right and left */ }
+
+            .z-loading { top: 50% !important; left: 45% !important;
+            align: center; vertical-align: middle; }
+
+            <!-- groupbox inner content area, NO padding -->
+            .myGroupBoxContentArea .z-groupbox-cnt{ background-color:
+            white; padding: 0px }
+        </style>
+
+        <!-- HIDDEN fields for storing the current desktop height and width -->
+        <intbox id="currentDesktopHeight" visible="false" />
+        <intbox id="currentDesktopWidth" visible="false" />
+        <!-- HIDDEN field for storing the initial menu type -->
+        <checkbox id="CBtreeMenu" checked="true" visible="false" />
+
+        <borderlayout id="borderlayoutMain" height="100%">
+            <north id="borderlayoutMainNorth" border="none"
+                   height="38px" splittable="false">
+
+                <!--
+                        <div id="div1" style="background-color:silver;">
+                -->
+                <div id="div1"
+                     style="background-color:silver; background-image:url(${c:encodeURL('/images/ZKHeader_2x38.png')});  background-repeat: repeat-x; border: 'none';">
+
+
+                    <hbox pack="stretch" width="100%">
+
+                        <div id="divNo" align="left"
+                             style="padding: 2px; ">
+                            <image src="/images/zkpowered_34x34.png" />
+                        </div>
+
+
+                        <div align="left" style="padding: 0px;">
+                            <image src="/images/ZKHeader2_176x38.jpg" />
+                        </div>
+
+
+                        <!--
+                                <div
+                                style="background-color:silver; background-image:url(${c:encodeURL('/images/ZKHeader_2x38.png')});  background-repeat:repeat-x; float:left; border: 'none';  padding-left: 5px; padding-bottom: 4px;"
+                                align="left">
+                                <label id="label_AppName"
+                                style="font-size:24px; font-weight:bold; color: #D70303" />
+                                </div>
+                        -->
+                        <div align="right" style="float: right">
+
+                            <!-- Monitor Background pic -->
+                            <div
+                                style="background-color:silver; background-image:url(${c:encodeURL('/images/ZKHeaderMonitorOnly_70x38.png')}); background-repeat:no-repeat; float:left; border: 'none'; width:70px;height:38px; "
+                                align="right">
+                            </div>
+
+
+                            <div align="right" style="float: right">
+                                <vlayout>
+
+                                    <div align="right"
+                                         style="float: right">
+                                        <!-- USER-BAR. Comps are created in the Controller -->
+                                        <window id="winUserBar"
+                                                apply="${userBarCtrl}" border="none" />
+                                    </div>
+
+                                    <div align="right"
+                                         style="float: right;">
+                                        <hbox pack="end">
+                                            <toolbarbutton
+                                                id="btnIndexMySettings" label="MySettings')}"
+                                                style="text-decoration: underline; color: white;" />
+                                            <toolbarbutton
+                                                id="btnAboutZksample2" label="${c:l('common.About')}"
+                                                style="text-decoration: underline; color: white;" />
+                                            <button id="btnLogout"
+                                                    height="20px" label="${c:l('btnLogout.label')}"
+                                                    tooltiptext="${c:l('btnLogout.tooltiptext')}" />
+                                        </hbox>
+                                    </div>
+
+                                </vlayout>
+                            </div>
+
+                        </div>
+                    </hbox>
+
+                    <div id="divDropDownMenu" width="100%">
+                        <!--						<menubar id="mainMenuBar" height="25px">
+                            <menuitem label="Home" id="000" visible="true"/>
+                            <menu label="Master Data" id="010" visible="true">
+                                <menupopup>
+                                    <menuitem label="Warna" id="011" visible="true"/>
+                                    <menuitem label="Jenis Kain" id="012" visible="true"/>
+                                    <menuitem label="Satuan" id="013" visible="true"/>
+                                    <menuitem label="Bank" id="014" visible="true"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Kain" id="100" visible="true">
+                                <menupopup>
+                                    <menuitem label="Supplier Kain" id="101" visible="true"/>
+                                    <menuitem label="Input Kain" id="102" visible="true"/>
+                                    <menuitem label="Pembelian Kain" id="103" visible="true" tooltiptext="POK : PO"/>
+                                    <menuitem label="Penerimaan Kain" id="104" visible="true" tooltiptext="POK : PO => DITERIMA"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Pakaian" id="201" visible="true">
+                                <menupopup>
+                                    <menuitem label="Input Pakaian" id="202" visible="true"/>
+                                    <menuitem label="Kebutuhan Bahan" id="203" visible="true" tooltiptext="POP : PO"/>
+                                    <menuitem label="Pengeluaran Barang" id="204" visible="true" tooltiptext="POP : PO => GUDANG_KAIN"/>
+                                    <menuitem label="Penerimaan Bahan/PO" id="205" visible="true" tooltiptext="POP : GUDANG_KAIN => KAIN"/>
+                                    <menuitem label="Harga Pokok" id="206" visible="true"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Cutting" id="300" visible="true">
+                                <menupopup>
+                                    <menuitem label="Pemotong" id="301" visible="true"/>
+                                    <menuitem label="Proses Cutting" id="302" visible="true" tooltiptext="POP : KAIN => CUTTING"/>
+                                </menupopup>
+                            </menu>
+                            <menuitem label="Estimasi Kebutuhan" id="701" visible="true" tooltiptext="POP : CUTTING"/>
+                            <menuitem label="Gudang Cutting" id="303" visible="true" tooltiptext="POP : CUTTING => GUDANG_CUTTING"/>
+                            <menu label="Aksesoris" id="500" visible="true">
+                                <menupopup>
+                                    <menuitem label="Supplier Aksesoris" id="501" visible="true"/>
+                                    <menuitem label="Input Aksesoris" id="502" visible="true"/>
+                                    <menuitem label="Pembelian Aksesoris" id="503" visible="true" tooltiptext="POA : PO"/>
+                                    <menuitem label="Penerimaan Aksesoris" id="504" visible="true" tooltiptext="POA : PO => DITERIMA"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Bahan Sablon" id="600" visible="true">
+                                <menupopup>
+                                    <menuitem label="Supplier Bahan Sablon" id="601" visible="true"/>
+                                    <menuitem label="Input Bahan Sablon" id="602" visible="true"/>
+                                    <menuitem label="Pembelian Bahan Sablon" id="603" visible="true" tooltiptext="POBS : PO"/>
+                                    <menuitem label="Penerimaan Bahan Sablon" id="604" visible="true" tooltiptext="POBS : PO => DITERIMA"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Bahan Sablon dan Bordir" id="401" visible="true">
+                                <menupopup>
+                                    <menuitem label="Input Sablon dan Bordir" id="402" visible="true"/>
+                                        <menuitem label="Kebutuhan Bahan" id="203" visible="true"/>
+                                        <menuitem label="Pengeluaran Barang" id="204" visible="true"/>
+                                        <menuitem label="Penerimaan Bahan/PO" id="205" visible="true"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="Stock" id="403" visible="true">
+                                <menupopup>
+                                    <menuitem label="Stock Pakaian" id="404" visible="true"/>
+                                    <menuitem label="Stock Kain" id="405" visible="true"/>
+                                    <menuitem label="Stock Aksesoris" id="406" visible="true"/>
+                                    <menuitem label="Stock Sablon dan Bordir" id="407" visible="true"/>
+                                </menupopup>
+                            </menu>
+                            <menu label="User Management" id="901" visible="true">
+                                <menupopup>
+                                    <menuitem label="User" id="902" visible="true"/>
+                                </menupopup>
+                            </menu>
+                            <menuitem label="Testing" id="999" visible="true"/>
+                        </menubar>-->
+                    </div>
+                </div>
+            </north>
+
+            <!-- MAIN MENU AREA -->
+            <west id="west" border="none" margins="0,0,0,0" size="230px"
+                  collapsible="true" style="padding: 0px;background-image:url(${c:encodeURL('/images/bg/background.png')})"
+                  flex="true" minsize="100" splittable="true" autoscroll="true">
+                <div id="divWest">
+                    <!--                                <menubar id="mainMenuBar" height="25px" orient="vertical" >
+                        <menuitem label="Home" id="000" visible="true"/>
+                        <menu label="Master Data" id="010" visible="true">
+                            <menupopup>
+                                <menuitem label="Warna" id="011" visible="true"/>
+                                <menuitem label="Jenis Kain" id="012" visible="true"/>
+                                <menuitem label="Satuan" id="013" visible="true"/>
+                                <menuitem label="Bank" id="014" visible="true"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Kain" id="100" visible="true">
+                            <menupopup>
+                                <menuitem label="Supplier Kain" id="101" visible="true"/>
+                                <menuitem label="Input Kain" id="102" visible="true"/>
+                                <menuitem label="Pembelian Kain" id="103" visible="true" tooltiptext="POK : PO"/>
+                                <menuitem label="Penerimaan Kain" id="104" visible="true" tooltiptext="POK : PO => DITERIMA"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Pakaian" id="201" visible="true">
+                            <menupopup>
+                                <menuitem label="Input Pakaian" id="202" visible="true"/>
+                                <menuitem label="Kebutuhan Bahan" id="203" visible="true" tooltiptext="POP : PO"/>
+                                <menuitem label="Pengeluaran Barang" id="204" visible="true" tooltiptext="POP : PO => GUDANG_KAIN"/>
+                                <menuitem label="Penerimaan Bahan/PO" id="205" visible="true" tooltiptext="POP : GUDANG_KAIN => KAIN"/>
+                                <menuitem label="Harga Pokok" id="206" visible="true"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Cutting" id="300" visible="true">
+                            <menupopup>
+                                <menuitem label="Pemotong" id="301" visible="true"/>
+                                <menuitem label="Proses Cutting" id="302" visible="true" tooltiptext="POP : KAIN => CUTTING"/>
+                            </menupopup>
+                        </menu>
+                        <menuitem label="Estimasi Kebutuhan" id="701" visible="true" tooltiptext="POP : CUTTING"/>
+                        <menuitem label="Gudang Cutting" id="303" visible="true" tooltiptext="POP : CUTTING => GUDANG_CUTTING"/>
+                        <menu label="Aksesoris" id="500" visible="true">
+                            <menupopup>
+                                <menuitem label="Supplier Aksesoris" id="501" visible="true"/>
+                                <menuitem label="Input Aksesoris" id="502" visible="true"/>
+                                <menuitem label="Pembelian Aksesoris" id="503" visible="true" tooltiptext="POA : PO"/>
+                                <menuitem label="Penerimaan Aksesoris" id="504" visible="true" tooltiptext="POA : PO => DITERIMA"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Bahan Sablon" id="600" visible="true">
+                            <menupopup>
+                                <menuitem label="Supplier Bahan Sablon" id="601" visible="true"/>
+                                <menuitem label="Input Bahan Sablon" id="602" visible="true"/>
+                                <menuitem label="Pembelian Bahan Sablon" id="603" visible="true" tooltiptext="POBS : PO"/>
+                                <menuitem label="Penerimaan Bahan Sablon" id="604" visible="true" tooltiptext="POBS : PO => DITERIMA"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Bahan Sablon dan Bordir" id="401" visible="true">
+                            <menupopup>
+                                <menuitem label="Input Sablon dan Bordir" id="402" visible="true"/>
+                                    <menuitem label="Kebutuhan Bahan" id="203" visible="true"/>
+                                    <menuitem label="Pengeluaran Barang" id="204" visible="true"/>
+                                    <menuitem label="Penerimaan Bahan/PO" id="205" visible="true"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="Stock" id="403" visible="true">
+                            <menupopup>
+                                <menuitem label="Stock Pakaian" id="404" visible="true"/>
+                                <menuitem label="Stock Kain" id="405" visible="true"/>
+                                <menuitem label="Stock Aksesoris" id="406" visible="true"/>
+                                <menuitem label="Stock Sablon dan Bordir" id="407" visible="true"/>
+                            </menupopup>
+                        </menu>
+                        <menu label="User Management" id="901" visible="true">
+                            <menupopup>
+                                <menuitem label="User" id="902" visible="true"/>
+                            </menupopup>
+                        </menu>
+                        <menuitem label="Testing" id="999" visible="true"/>
+                    </menubar>-->
+                    <tree id="tree">
+                        <treecols sizable="true">
+                            <treecol label="The Power of Productivity!" />
+                        </treecols>
+                        <treechildren>
+                            <treeitem open="false">
+                                <treerow>
+                                    <treecell label="Project Management" id="PM_000" visible="true"/>
+                                </treerow>
+                                <treechildren>
+                                    <treeitem>
+                                        <treerow>
+                                            <treecell label="Home" id="PM_001" visible="true"/>
+                                        </treerow>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Registration" id="PM_002" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Project List" id="PM_003" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Monitoring" id="PM_004" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Project Monitoring" id="PM_005" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Timesheet" id="PM_006" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Timesheet Data" id="PM_007" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Expense Sheet" id="PM_008" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Expense Sheet Data" id="PM_009" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Master Data" id="PM_010" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Customer" id="PM_011" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Customer Group" id="PM_012" visible="true" image="/images/icon/kain.ico"/>
+                                                    <treeitem label="Customer Data" id="PM_013" visible="true" image="/images/icon/kain.ico"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Personel" id="PM_014" visible="true" image="/images/icon/kain.ico"/>
+                                            <treeitem label="Activity" id="PM_015" visible="true" image="/images/icon/kain.ico"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Report" id="PM_016" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Project Profitability" id="PM_017" visible="true" image="/images/icon/kain.ico"/>
+                                            <treeitem label="Project Cost" id="PM_018" visible="true"/>
+                                            <treeitem label="Field Allowances" id="PM_019" visible="true" tooltiptext="POK : PO" image="/images/icon/pembelian2.ico"/>
+                                            <treeitem label="Personal Utilization" id="PM_020" visible="true" tooltiptext="POK : PO => DITERIMA" image="/images/icon/penerimaan3.ico"/>
+                                        </treechildren>
+                                    </treeitem>
+                                </treechildren>
+                            </treeitem>
+                            <treeitem open="false">
+                                <treerow>
+                                    <treecell label="HRM" id="HR_000" visible="true"/>
+                                </treerow>
+                                <treechildren>
+                                    <treeitem>
+                                        <treerow>
+                                            <treecell label="Home" id="HR_001" visible="true"/>
+                                        </treerow>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Employee" id="HR_002" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Data" id="HR_003" visible="true"/>
+                                            <treeitem label="Expense Sheet" id="HR_004" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Absence" id="HR_005" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Leave and Permission" id="HR_006" visible="true"/>
+                                            <treeitem label="Office Working Time" id="HR_007" visible="true"/>
+                                            <treeitem label="Overtime Data" id="HR_008" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Payroll" id="HR_009" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Paycheque Submit" id="HR_010" visible="true"/>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Non Paycheque Submit" id="HR_011" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Meal Allowance" id="HR_012" visible="true"/>
+                                                    <treeitem label="Transportation Allowance" id="HR_013" visible="true"/>
+                                                    <treeitem label="Overtime" id="HR_014" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Non Payment Submit" id="HR_015" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Other Allowance" id="HR_016" visible="true"/>
+                                                    <treeitem label="Insurance Allowance" id="HR_017" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Tax Art 21 Submit" id="HR_018" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Report" id="HR_019" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Paycheques" id="HR_020" visible="true"/>
+                                            <treeitem label="Field Allowance Summary" id="HR_021" visible="true"/>
+                                            <treeitem label="Employee Presence Summary" id="HR_022" visible="true"/>
+                                            <treeitem label="Employee Profile" id="HR_023" visible="true"/>
+                                            <treeitem label="Employee List" id="HR_024" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Master Data" id="HR_025" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Employee Attribute" id="HR_026" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Department" id="HR_027" visible="true"/>
+                                                    <treeitem label="Qualification" id="HR_028" visible="true"/>
+                                                    <treeitem label="Job Title" id="HR_029" visible="true"/>
+                                                    <treeitem label="Work Agreement" id="HR_030" visible="true"/>
+                                                    <treeitem label="Education" id="HR_031" visible="true"/>
+                                                    <treeitem label="Religion" id="HR_032" visible="true"/>
+                                                    <treeitem label="Sex Type" id="HR_033" visible="true"/>
+                                                    <treeitem label="Family Relation" id="HR_034" visible="true"/>
+                                                    <treeitem label="Marital Status" id="HR_035" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Payroll" id="HR_036" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Payroll Component" id="HR_037" visible="true"/>
+                                                    <treeitem label="Payroll Category" id="HR_038" visible="true"/>
+                                                    <treeitem label="Field Allowance Multiplier" id="HR_039" visible="true"/>
+                                                    <treeitem label="Tax Art 21 Component" id="HR_040" visible="true"/>
+                                                    <treeitem label="PTKP" id="HR_041" visible="true"/>
+                                                    <treeitem label="Tax Art 21 Tariff" id="HR_042" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Absence" id="HR_043" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Leave Type" id="HR_044" visible="true"/>
+                                                    <treeitem label="Permission Type" id="HR_045" visible="true"/>
+                                                    <treeitem label="Office HR Perm. Type" id="HR_046" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Setting" id="HR_047" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Default Working Time" id="HR_048" visible="true"/>
+                                            <treeitem label="Holiday" id="HR_049" visible="true"/>
+                                            <treeitem label="Annual Leave Right" id="HR_050" visible="true"/>
+                                            <treeitem label="Overtime Multiplier" id="HR_051" visible="true"/>
+                                            <treeitem label="Paycheque Label" id="HR_052" visible="true"/>
+                                            <treeitem label="Non Paycheque Period" id="HR_053" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                </treechildren>
+                            </treeitem>
+                            
+                            <treeitem open="false">
+                                <treerow>
+                                    <treecell label="Accounting" id="ACC_000" visible="true"/>
+                                </treerow>
+                                <treechildren>
+                                    <treeitem label="Home" id="ACC_001" visible="true"/>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Transaction" id="ACC_002" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Receive" id="ACC_003" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Expense Sheet Different" id="ACC_004" visible="true"/>
+                                                    <treeitem label="Unit Bank/Cash Transfer" id="ACC_005" visible="true"/>
+                                                    <treeitem label="Employee Receivables" id="ACC_006" visible="true"/>
+                                                    <treeitem label="Loan" id="ACC_007" visible="true"/>
+                                                    <treeitem label="Others" id="ACC_008" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Payment" id="ACC_009" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Project Cost" id="ACC_010" visible="true"/>
+                                                    <treeitem label="Operational Cost" id="ACC_011" visible="true"/>
+                                                    <treeitem open="false">
+                                                        <treerow>
+                                                            <treecell label="Cash Advance" id="ACC_012" visible="true"/>
+                                                        </treerow>
+                                                        <treechildren>
+                                                            <treeitem label="I Owe You" id="ACC_013" visible="true"/>
+                                                            <treeitem label="General" id="ACC_014" visible="true"/>
+                                                        </treechildren>
+                                                    </treeitem>
+
+                                                    <treeitem label="Expense Sheet Difference" id="ACC_015" visible="true"/>
+                                                    <treeitem label="Unit Bank/Cash Transfer" id="ACC_016" visible="true"/>
+                                                    <treeitem label="Employee Receivables" id="ACC_017" visible="true"/>
+                                                    <treeitem label="Loan" id="ACC_018" visible="true"/>
+                                                    <treeitem label="Others" id="ACC_019" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Sales" id="ACC_020" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Sales Advanced" id="ACC_021" visible="true"/>
+                                                    <treeitem label="Invoice" id="ACC_022" visible="true"/>
+                                                    <treeitem label="Sales Receive" id="ACC_023" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Purchase" id="ACC_024" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Purchase Receipt" id="ACC_025" visible="true"/>
+                                                    <treeitem label="Account Payable Payment" id="ACC_026" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Payroll" id="ACC_027" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem open="false">
+                                                        <treerow>
+                                                            <treecell label="Payroll Verification" id="ACC_028" visible="true"/>
+                                                        </treerow>
+                                                        <treechildren>
+                                                            <treeitem label="Paycheques" id="ACC_029" visible="true"/>
+                                                            <treeitem open="false">
+                                                                <treerow>
+                                                                    <treecell label="Non Paycheque" id="ACC_030" visible="true"/>
+                                                                </treerow>
+                                                                <treechildren>
+                                                                    <treeitem label="Meal Allowance" id="ACC_031" visible="true"/>
+                                                                    <treeitem label="Transporation Allowance" id="ACC_032" visible="true"/>
+                                                                    <treeitem label="Overtime" id="ACC_033" visible="true"/>
+                                                                </treechildren>
+                                                            </treeitem>
+                                                            <treeitem open="false">
+                                                                <treerow>
+                                                                    <treecell label="Non Payment" id="ACC_034" visible="true"/>
+                                                                </treerow>
+                                                                <treechildren>
+                                                                    <treeitem label="Other Allowance" id="ACC_035" visible="true"/>
+                                                                    <treeitem label="Insurance Allowance" id="ACC_036" visible="true"/>
+                                                                </treechildren>
+                                                            </treeitem>
+                                                            <treeitem label="Tax Art 21" id="ACC_037" visible="true"/>
+                                                        </treechildren>
+                                                    </treeitem>
+                                                    <treeitem open="false">
+                                                        <treerow>
+                                                            <treecell label="Payroll Payment" id="ACC_038" visible="true"/>
+                                                        </treerow>
+                                                        <treechildren>
+                                                            <treeitem open="false">
+                                                                <treerow>
+                                                                    <treecell label="Salary" id="ACC_039" visible="true"/>
+                                                                </treerow>
+                                                                <treechildren>
+                                                                    <treeitem label="Head Office" id="ACC_040" visible="true"/>
+                                                                    <treeitem label="Unit" id="ACC_041" visible="true"/>
+                                                                </treechildren>
+                                                            </treeitem>
+                                                            <treeitem open="false">
+                                                                <treerow>
+                                                                    <treecell label="Tax Art 21" id="ACC_042" visible="true"/>
+                                                                </treerow>
+                                                                <treechildren>
+                                                                    <treeitem label="Head Office" id="ACC_043" visible="true"/>
+                                                                    <treeitem label="Unit" id="ACC_044" visible="true"/>
+                                                                </treechildren>
+                                                            </treeitem>
+                                                            <treeitem label="Employee Insurance" id="ACC_045" visible="true"/>
+                                                        </treechildren>
+                                                    </treeitem>
+
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Expense Sheet" id="ACC_046" visible="true"/>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Memorial" id="ACC_047" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Memorial Journal Standard" id="ACC_048" visible="true"/>
+                                                    <treeitem label="Memorial Journal Non Standard" id="ACC_049" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Closing Transaction" id="ACC_050" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Posting" id="ACC_051" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Transaction Posting" id="ACC_052" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Project" id="ACC_053" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Project Registration" id="ACC_054" visible="true"/>
+                                            <treeitem label="Project Monitoring" id="ACC_055" visible="true"/>                                    
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Report" id="ACC_056" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem label="Balance Sheet" id="ACC_057" visible="true"/>
+                                            <treeitem label="Income Statement" id="ACC_058" visible="true"/>
+                                            <treeitem label="Indirect Cash Flow Statement" id="ACC_059" visible="true"/>
+                                            <treeitem label="Direct Cash Flow Statement" id="ACC_060" visible="true"/>
+                                            <treeitem label="Trial Balance" id="ACC_061" visible="true"/>
+                                            <treeitem label="General Ledger" id="ACC_062" visible="true"/>
+                                            <treeitem label="Subsidiary Ledger" id="ACC_063" visible="true"/>
+                                            <treeitem label="Sales" id="ACC_064" visible="true"/>
+                                            <treeitem label="Account Receivable" id="ACC_065" visible="true"/>
+                                            <treeitem label="Purchase" id="ACC_066" visible="true"/>
+                                            <treeitem label="Account Payable" id="ACC_067" visible="true"/>
+                                            <treeitem label="Employee Receivable" id="ACC_068" visible="true"/>
+                                            <treeitem label="Cash Advance" id="ACC_069" visible="true"/>
+                                            <treeitem label="Project Cost" id="ACC_070" visible="true"/>
+                                            <treeitem label="Project Profitability" id="ACC_071" visible="true"/>
+                                            <treeitem label="Project Profitability Detail" id="ACC_072" visible="true"/>
+                                            <treeitem label="Paycheque" id="ACC_073" visible="true"/>
+                                            <treeitem label="Department Cost" id="ACC_074" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Setting" id="ACC_075" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Beginning Balance" id="ACC_076" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Balance Sheet" id="ACC_077" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Standard Journal Setting" id="ACC_078" visible="true"/>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Report Design" id="ACC_079" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Trial Balance" id="ACC_080" visible="true"/>
+                                                    <treeitem label="Income Statement Designer" id="ACC_081" visible="true"/>
+                                                    <treeitem label="Balance Sheet Designer" id="ACC_082" visible="true"/>
+                                                    <treeitem label="Indirect Cash Flow Statement Designer" id="ACC_083" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Base Currency" id="ACC_084" visible="true"/>
+                                            <treeitem label="Employee Signature" id="ACC_085" visible="true"/>
+                                            <treeitem label="Variable Account" id="ACC_086" visible="true"/>
+                                            <treeitem label="Subsidiary Account" id="ACC_087" visible="true"/>
+                                            <treeitem label="Base Unit" id="ACC_088" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                    <treeitem open="false">
+                                        <treerow>
+                                            <treecell label="Master Data" id="ACC_089" visible="true"/>
+                                        </treerow>
+                                        <treechildren>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Accounting" id="ACC_090" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Chart of Account" id="ACC_091" visible="true"/>
+                                                    <treeitem label="Currency" id="ACC_092" visible="true"/>
+                                                    <treeitem label="Bank Account" id="ACC_093" visible="true"/>
+                                                    <treeitem label="Creditor List" id="ACC_094" visible="true"/>
+                                                    <treeitem label="Loan" id="ACC_095" visible="true"/>
+                                                    <treeitem label="Cash Account" id="ACC_096" visible="true"/>
+                                                    <treeitem label="Journal" id="ACC_097" visible="true"/>
+                                                    <treeitem label="Standard Journal" id="ACC_098" visible="true"/>
+                                                    <treeitem label="Exchange Rate" id="ACC_099" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem open="false">
+                                                <treerow>
+                                                    <treecell label="Payroll" id="ACC_100" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Payroll Component" id="ACC_101" visible="true"/>
+                                                    <treeitem label="Payroll Category" id="ACC_102" visible="true"/>
+                                                    <treeitem label="Field Allowance Multiplier" id="ACC_103" visible="true"/>
+                                                    <treeitem label="Tax Art 21 Component" id="ACC_104" visible="true"/>
+                                                    <treeitem label="PTKP" id="ACC_105" visible="true"/>
+                                                    <treeitem label="Tax Art 21 Tariff" id="ACC_106" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Activity Code" id="ACC_107" visible="true"/>
+                                            <treeitem label="Department" id="ACC_108" visible="true"/>
+                                            <treeitem label="Unit Code" id="ACC_109" visible="true"/>
+                                            <treeitem label="Customer" id="ACC_110" visible="true"/>
+                                            <treeitem label="Partner" id="ACC_111" visible="true"/>
+                                            <treeitem label="Personal" id="ACC_112" visible="true"/>
+                                        </treechildren>
+                                    </treeitem>
+                                </treechildren>
+                            </treeitem>
+                        </treechildren>
+
+                        <treefoot>
+                            <treefooter>
+                                <tree>
+                                    <treechildren>
+                                        <treeitem label="Mail" id="09090" visible="true"/>
+                                        <treeitem label="Calendar" id="09091" visible="true"/>
+                                        <treeitem label="Contact" id="09092" visible="true"/>
+                                        <treeitem label="Chat" id="09093" visible="true"/>
+                                    </treechildren>
+                                    
+                                </tree>
+                            </treefooter>
+                        </treefoot>
+                    </tree>
+                    <separator/>
+                </div>
+            </west>
+
+            <!-- MODULE CONTENT AREA -->
+            <center id="center" border="none" margins="0,0,0,0"
+                    flex="true" autoscroll="true"
+                    style="padding: 0px;background-image:url(${c:encodeURL('/images/bg/background.png')})">
+                <div id="divCenter">
+
+                    <groupbox id="groupbox_menu" mold="3d"
+                              closable="false" sclass="myGroupBoxContentArea">
+                        <caption
+                            style="color: #000000; font-weight: bold;"
+                            label="LemurianSoft">
+                            <div sclass="z-toolbar" style="padding:0">
+                                <hbox pack="stretch"
+                                      sclass="hboxRemoveWhiteStrips" width="100%">
+
+                                    <toolbar align="start"
+                                             style="float:left; border-style: none;">
+                                    </toolbar>
+
+                                    <toolbar align="center"
+                                             style="float:left; border-style: none;">
+                                    </toolbar>
+
+                                    <toolbar align="end"
+                                             style="float:right; border-style: none;">
+                                        <button id="btnCloseAllTabs"
+                                                image="/images/icons/stop.gif" height="20px"
+                                                tooltiptext="${c:l('btnCloseAllTabs.tooltiptext')}" />
+                                    </toolbar>
+                                </hbox>
+                            </div>
+                        </caption>
+
+
+
+                        <tabbox id="tabBoxIndexCenter" width="100%"
+                        >
+                            <tabs id="tabsIndexCenter"></tabs>
+                            <tabpanels id="tabpanelsBoxIndexCenter">
+                            </tabpanels>
+                        </tabbox>
+                    </groupbox>
+
+                </div>
+            </center>
+
+            <east border="none" margins="0,0,0,0" size="0%" >
+                <div id="divEast">EAST</div>
+            </east>
+
+
+            <!-- STATUS BAR AREA -->
+            <south id="south" border="none" height="22px"
+                   splittable="false" style="float: left; padding: 0px; color:red;" >
+
+                <div id="divSouth" align="left"
+                     width="100%">
+                    <borderlayout width="100%" height="22px">
+
+                        <west border="none" width="50px" >
+
+                            <!--
+                                    function scrolltxt(txt) { var txtEle =
+                                    document.getElementById(txtBox);
+                                    txtEle.scrollTop = txtEle.scrollHeight; }
+                            -->
+
+                            <!-- The MessageBar. Comps are created in the Controller -->
+                            <window id="winMessageBar"
+                                    border="none" width="50px"
+                                    height="22px" style="float: left; padding: 0px; background-color:#272727;"/>
+                            <!--apply="com.textile.controller.tools.MessageBarCtrl" border="none" width="50px"-->
+                        </west>
+
+                        <center border="none">
+                            <!-- The StatusBar. Comps are created in the Controller -->
+                            <window id="winStatusBar"
+                                    border="none" width="100%"
+                                    height="22px" style="float: left; padding: 0px; background-color:#272727;"/>
+                            <!--apply="com.textile.controller.tools.StatusBarCtrl"--> 
+                        </center>
+
+                    </borderlayout>
+
+                </div>
+
+            </south>
+        </borderlayout>
+
+
     </window>
 </zk>
+
+
