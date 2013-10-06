@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowFamily" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Family"/>
+            <listbox id="listboxShowFamily">
+                <listhead>
+                    <listheader label="Relation" align="center"/>
+                    <listheader label="Name" align="center"/>
+                    <listheader label="Birth Place" align="center"/>
+                    <listheader label="Birth Date" align="center"/>
+                    <listheader label="Education" align="center"/>
+                    <listheader label="Job Title" align="center"/>
+                    <listheader label="Company" align="center"/>
+                    <listheader label="Remark" align="center"/>
+                </listhead>
+            </listbox>
+
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Relation :"/>
+                        <textbox id="textRelation" width="400px"/>
+                        <label value="Name :"/>
+                        <textbox id="textName" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Birth Place :"/>
+                        <textbox id="textBirthPlace" width="400px"/>                     
+                        <label value="Birth Date :"/>
+                        <datebox id="dateBirthDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row> 
+                        <label value="Education :"/>
+                        <textbox id="textEducation" width="400px"/>
+                        <label value="Job Title :"/>
+                        <textbox id="textJobTitle" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Company :"/>
+                        <textbox id="textCompany" width="400px"/>       
+                        <label value="Remark :"/>
+                        <textbox id="textRemark" cols="50" rows="5"/>              
+                    </row>
+                </rows>
+            </grid>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddFamily" tooltip="Add Family" tooltiptext="Add Family"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditFamily" tooltip="Edit Family" tooltiptext="Edit Family"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteFamily" tooltip="Delete Family" tooltiptext="Delete Family"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveFamily" tooltip="Save Family" tooltiptext="Save Family"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelFamily" tooltip="Cancel Family" tooltiptext="Cancel Family"/>
+            </toolbar>
+
+
+        </groupbox>
+
+    </window>
+</zk>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowProfile">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Profile"/>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <!--<row spans="1,2,2,2,2,1,1">-->
+                    <row>
+                        <label value="Employee No :"/>
+                        <textbox id="textEmpNo" width="400px"/>
+                        <label value="Nama :"/>
+                        <textbox id="textNama" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Education :"/>
+                        <textbox id="textEducation" width="400px"/>
+                        <label value="Job Title :"/>
+                        <textbox id="textJobTitle" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Department :"/>
+                        <textbox id="textDepartment" width="400px"/>
+                        <label value="Unit Code :"/>
+                        <textbox id="textUnitCode" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Work Agreement :"/>
+                        <textbox id="textWorkAgreement" width="400px"/>
+                        <label value="Sex :"/>
+                        <textbox id="textSex" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="City :"/>
+                        <textbox id="textCity" width="400px"/>
+                        <label value="Post Code :"/>
+                        <intbox id="textPostCode" width="200px"/>
+                    </row>
+                    <row> 
+                        <label value="Province :"/>
+                        <textbox id="textProvince" width="400px"/>
+                        <label value="Phone :"/>
+                        <textbox id="textPhone" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Marital Status :"/>
+                        <textbox id="textMaritalStatus" width="400px"/>
+                        <label value="Qualification :"/>
+                        <textbox id="textQualification" width="400px"/>
+                    </row>
+                </rows>
+            </grid>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveProfile" tooltip="Save Profile" tooltiptext="Save Profile"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelProfile" tooltip="Cancel Profile" tooltiptext="Cancel Profile"/>
+            </toolbar>
+
+        </groupbox>
+        
+        
+
+    </window>
+</zk>

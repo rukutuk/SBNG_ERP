@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowEmployment" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Employment"/>
+            <listbox id="listboxEmployment">
+                <listhead>
+                    <listheader label="Job Title" align="center"/>
+                    <listheader label="Department" align="center"/>
+                    <listheader label="Unit Code" align="center"/>
+                    <listheader label="Ref. No" align="center"/>
+                    <listheader label="Ref. Date" align="center"/>
+                    <listheader label="TMT" align="center"/>
+                    <listheader label="End Date" align="center"/>
+                    <listheader label="Work Agreement" align="center"/>
+                    <listheader label="Description" align="center"/>
+                </listhead>
+            </listbox>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Job Title :"/>
+                        <textbox id="textJobTitle" width="400px"/>
+                        <label value="Department :"/>
+                        <textbox id="textDepartment" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Unit Code :"/>
+                        <textbox id="textUnitCode" width="400px"/>
+                        <label value="Ref. No :"/>
+                        <textbox id="textRefNo" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Ref. Date :"/>
+                        <datebox id="dateRefDate" width="100px" format="dd-MM-yyyy"/>
+                        <label value="TMT :"/>
+                        <textbox id="textTMT" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="End Date :"/>
+                        <datebox id="dateEndDate" width="100px" format="dd-MM-yyyy"/>
+                        <label value="Work Agreement :"/>
+                        <textbox id="textWorkAgreement" width="400px"/>
+                    </row>
+                    <row spans="1,3">
+                        <label value="Description :"/>
+                        <textbox id="textDescription" cols="85" rows="5"/>
+                    </row>
+                </rows>
+            </grid>
+
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddEmployment" tooltip="Add Employment" tooltiptext="Add Employment"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditEmployment" tooltip="Edit Employment" tooltiptext="Edit Employment"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteEmployment" tooltip="Delete Employment" tooltiptext="Delete Employment"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveEmployment" tooltip="Save Employment" tooltiptext="Save Employment"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelEmployment" tooltip="Cancel Employment" tooltiptext="Cancel Employment"/>
+            </toolbar>
+
+
+        </groupbox>
+    </window>
+</zk>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowLeavePermission" title="Show Leave Permission">
+        <listbox id="listboxEmployee">
+            <listhead>
+                <listheader label="NIP" align="center"/>
+                <listheader label="Nama" align="center"/>
+            </listhead>
+        </listbox>
+        <tabbox id="tabBoxEmployee" height="100%" width="100%" >
+            <tabs id="tabsEmployee" >
+                <tab id="tab_profile" label="Profile" closable="false"  />
+                <tab id="tab_leave_permission" label="Leave Permission" closable="false" />
+                <tab id="tab_leave_permission_history" label="Leave and Permission History" closable="false" selected="true"/>
+                <tab id="tab_office_hour_permission" label="Office Hour Permission" closable="false" />
+            </tabs>
+            <tabpanels id="tabpanelsBoxExpense" height="100%" width="100%"  >
+                <tabpanel id="tabpanelProfile" height="100%" width="100%"  >
+                    <include id="profileInclude" src="/hrm/absence/leavepermission/show_profile.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelEmployment" height="100%" width="100%"  >
+                    <include id="leavePermissionInclude" src="/hrm/absence/leavepermission/show_leave_permission_detail.zul" width="100%" height="100%" />
+                </tabpanel>
+                <tabpanel id="tabpanelEducation" height="100%" width="100%"  >
+                    <include id="leavePermissionHistInclude" src="/hrm/absence/leavepermission/show_leave_permission_hist.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelFamily" height="100%" width="100%"  >
+                    <include id="officeHourPermissionInclude" src="/hrm/absence/leavepermission/office_hour_permission.zul" width="100%" height="100%" />                    
+                </tabpanel>
+            </tabpanels>
+        </tabbox>
+    </window>
+</zk>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowRetirement" title="">
+        <grid class="custom-grid">                                               
+            <columns>
+                <column width="120px" align="right" />
+                <column width="450px" align="left" />
+                <column width="140px" align="right" />
+                <column width="100%" align="left" />
+            </columns>
+            <rows>
+                <row>
+                    <label value="Retirement Ref. No :"/>
+                    <textbox id="textRetirementRefNo" width="400px"/>
+                    <label value="Retirement Ref. Date :"/>
+                    <datebox id="dateRetirementRefDate" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                <row>
+                    <label value="Reason :"/>
+                    <textbox id="textReason" cols="50" rows="5"/>
+                    <label value="Remark :"/>
+                    <textbox id="textRemark" cols="50" rows="5"/>
+                </row>
+                <row spans="1,3">
+                    <label value="TMT :"/>
+                    <textbox id="textTMT" width="400px"/>
+                </row>
+            </rows>
+        </grid>
+        
+        <toolbar>
+            <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditRetirement" tooltip="Edit Retirement" tooltiptext="Edit Retirement"/>
+            <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveRetirement" tooltip="Save Retirement" tooltiptext="Save Retirement"/>
+            <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelRetirement" tooltip="Cancel Retirement" tooltiptext="Cancel Retirement"/>
+        </toolbar>
+
+
+    </window>
+</zk>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowEmployee" title="Show Employee">
+        <listbox id="listboxEmployee">
+            <listhead>
+                <listheader label="NIP" align="center"/>
+                <listheader label="Nama" align="center"/>
+            </listhead>
+        </listbox>
+        <tabbox id="tabBoxEmployee" height="100%" width="100%" >
+            <tabs id="tabsEmployee" >
+                <tab id="tab_profile" label="Profile" closable="false"  />
+                <tab id="tab_employment" label="Employment" closable="false" />
+                <tab id="tab_education" label="Education" closable="false"/>
+                <tab id="tab_family" label="Family" closable="false" />
+                <tab id="tab_certification" label="Certification" closable="false" />
+                <tab id="tab_account" label="Account" closable="false" />
+                <tab id="tab_retirement" label="Retirement" closable="false"  selected="true" />
+            </tabs>
+            <tabpanels id="tabpanelsBoxEmployee" height="100%" width="100%"  >
+                <tabpanel id="tabpanelProfile" height="100%" width="100%"  >
+                    <include id="profileInclude" src="/hrm/employee/data/show_profile.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelEmployment" height="100%" width="100%"  >
+                    <include id="employmentInclude" src="/hrm/employee/data/show_employment.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelEducation" height="100%" width="100%"  >
+                    <include id="educationInclude" src="/hrm/employee/data/show_education.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelFamily" height="100%" width="100%"  >
+                    <include id="familyInclude" src="/hrm/employee/data/show_family.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelCertification" height="100%" width="100%"  >
+                    <include id="certInclude" src="/hrm/employee/data/show_certification.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelAccount" height="100%" width="100%"  >
+                    <include id="accountInclude" src="/hrm/employee/data/show_account.zul" width="100%" height="100%" />                    
+                </tabpanel>
+                <tabpanel id="tabpanelRetirement" height="100%" width="100%"  >
+                    <include id="retirementInclude" src="/hrm/employee/data/show_retirement.zul" width="100%" height="100%" />                    
+                </tabpanel>
+            </tabpanels>
+        </tabbox>
+    </window>
+</zk>

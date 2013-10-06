@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowLeavePermissionDetail" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Show Leave and Permission"/>
+            <radiogroup id="radioLeavePermission">
+                <radio value="L"/>Leave
+                <radio value="P"/>Permission
+            </radiogroup>
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Reason"/>
+                        <combobox id="combo Reason"/>
+                        <label value="Annual Leave Deduction :"/>
+                        <textbox id="textAnnualLeaveDeduction" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Proposal Date :"/>
+                        <datebox id="dateProposalDate" width="100px" format="dd-MM-yyyy"/>
+                        <label value="From :"/>
+                        <datebox id="dateFrom" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>                                                
+                        <label value="To :"/>
+                        <datebox id="dateTo" width="100px" format="dd-MM-yyyy"/>
+                        <label value="Days # :"/>
+                        <intbox id="textDays" width="200px"/>
+                    </row>
+                    <row>                                                
+                        <label value="Address :"/>
+                        <textbox id="textAddress" width="400px"/>
+                        <label value="Phone :"/>
+                        <textbox id="textPhone" width="400px"/>
+                    </row>
+                    <row>                           
+                        <label value="Replaced By"/>
+                        <hbox>
+                            <bandbox id="bdReplacedBy" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                <bandpopup>
+                                    <hbox>Replaced By : 
+                                        <textbox id="searchBoxReplacedBy" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                    </hbox>
+                                    <listbox id="listboxBdReplacedBy" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdReplacedBy.close();">
+                                        <listhead>
+                                            <listheader width="100px" align="center">
+                                                <label multiline="true" value="NIP"  />
+                                            </listheader>
+                                            <listheader width="300px" align="center">
+                                                <label multiline="true" value="Nama"  />
+                                            </listheader>
+                                        </listhead>
+                                    </listbox>
+                                </bandpopup>
+                            </bandbox>
+                        </hbox>
+                        <label value="Checked By"/>
+                        <hbox>
+                            <bandbox id="bdCheckedBy" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                <bandpopup>
+                                    <hbox>Checked By : 
+                                        <textbox id="searchBoxCheckedBy" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                    </hbox>
+                                    <listbox id="listboxBdCheckedBy" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdCheckedBy.close();">
+                                        <listhead>
+                                            <listheader width="100px" align="center">
+                                                <label multiline="true" value="NIP"  />
+                                            </listheader>
+                                            <listheader width="300px" align="center">
+                                                <label multiline="true" value="Nama"  />
+                                            </listheader>
+                                        </listhead>
+                                    </listbox>
+                                </bandpopup>
+                            </bandbox>
+                        </hbox>
+                    </row>
+                    <row>      
+                        <label value="Checked Date :"/>
+                        <datebox id="dateCheckedDate" width="100px" format="dd-MM-yyyy"/>                                          
+                        <label value="Approved By"/>
+                        <hbox>
+                            <bandbox id="bdApprovedBy" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                <bandpopup>
+                                    <hbox>Approved By : 
+                                        <textbox id="searchBoxApprovedBy" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                    </hbox>
+                                    <listbox id="listboxBdApprovedBy" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdApprovedBy.close();">
+                                        <listhead>
+                                            <listheader width="100px" align="center">
+                                                <label multiline="true" value="NIP"  />
+                                            </listheader>
+                                            <listheader width="300px" align="center">
+                                                <label multiline="true" value="Nama"  />
+                                            </listheader>
+                                        </listhead>
+                                    </listbox>
+                                </bandpopup>
+                            </bandbox>
+                        </hbox>
+                    </row>
+                    <row>     
+                        <label value="Description :"  />
+                        <textbox id="textDescription" cols="80" rows="6"/>
+                        <label value="Reference :"  />
+                        <checkbox id="checkReference"/>
+                    </row>
+                </rows>
+            </grid>
+            <groupbox mold="3d" closable="false" >
+                <caption label="  Reference Document Attachment"/>
+                <grid>
+                    <columns>
+                        <column width="118px" align="right" />
+                        <column width="218px" align="left" />
+                        <column width="100px" align="left" />
+                        <column width="100%" align="left" />
+                    </columns>                        
+                    <rows>
+                        <row spans="1,1,2">
+                            File Path : <textbox id="filePathDocument"/>
+                            <button id="btnUploadsDocument" label="Uploads" upload="true,multiple=true"/>
+                        </row>
+                        <row>
+                            File Name : <textbox id="fileNameDocument"/>
+                            <button id="btnDownloadsDocument" label="Downloads" upload="true,multiple=true"/>
+                            <button id="btnDeleteDocument" label="Delete" upload="true,multiple=true"/>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>    
+            <toolbar>
+                <toolbarbutton image="/icons/btn_search2_16x16.gif" id="btnSearchLeavePermission" tooltip="Search LeavePermission" tooltiptext="Search LeavePermission"/>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddLeavePermission" tooltip="Add LeavePermission" tooltiptext="Add LeavePermission"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditLeavePermission" tooltip="Edit LeavePermission" tooltiptext="Edit LeavePermission"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteLeavePermission" tooltip="Delete LeavePermission" tooltiptext="Delete LeavePermission"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveLeavePermission" tooltip="Save LeavePermission" tooltiptext="Save LeavePermission"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelLeavePermission" tooltip="Cancel LeavePermission" tooltiptext="Cancel LeavePermission"/>
+            </toolbar>
+
+
+        </groupbox>
+
+        
+    </window>
+</zk>

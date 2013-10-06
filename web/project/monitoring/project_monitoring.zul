@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+    <style dynamic="true">
+        .z-toolbar a, .z-toolbar a:visited, .z-toolbar a:hover{
+        background-color:transparent;
+        border:0 none;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .p-vista .z-panel-children {
+        background-color: #008BB6;
+        border-bottom: 0 none;
+        }
+
+
+        /*div.z-progressmeter{
+        background:#FFF repeat-x 0 0;background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        border:1px solid #CFCFCF;text-align:left;height:15px;overflow:hidden;
+        }
+        span.z-progressmeter-img{
+        display:-moz-inline-box;display:inline-block;background:#FFF repeat-x 0 0;
+        background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        height:15px;line-height:0;font-size:0;}.z-separator-hor,
+        .z-separator-hor-bar{
+        height:7px;overflow:hidden;line-height:0;font-size:0;
+        }*/
+
+    </style>
+    <window id="windowProjectMonitoring" title="Project Monitoring"  >
+        <grid class="custom-grid">                                               
+            <columns>
+                <column width="120px" align="right" />
+                <column width="450px" align="left" />
+                <column width="120px" align="right" />
+                <column width="150px" align="left" />
+                <column width="130px" align="right" />
+                <column width="100%" align="left" />
+                <!--<column width="200px" align="left" />-->
+            </columns>
+            <rows>
+                <!--<row spans="1,2,2,2,2,1,1">-->
+                <row>
+                    <label value="Project Code :"  />
+                    <hbox>
+                        <bandbox id="bdProjectCode" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                            <bandpopup>
+                                <hbox>Projek Code : 
+                                    <textbox id="searchBoxProjectCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                </hbox>
+                                <listbox id="listboxBdProjectCode" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdProjectCode.close();">
+                                    <listhead>
+                                        <listheader width="100px" align="center">
+                                            <label multiline="true" value="Kode Projek"  />
+                                        </listheader>
+                                        <listheader width="300px" align="center">
+                                            <label multiline="true" value="Nama Projek"  />
+                                        </listheader>
+                                    </listhead>
+                                </listbox>
+                            </bandpopup>
+                        </bandbox>
+                    </hbox>
+                    <label value="O.R No :"/>
+                    <textbox id="textOR" width="100px"/>
+                    <label value="O.R Date :"/>
+                    <datebox id="dateOR" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                
+                
+                <row>
+                    <label value="Customer :"  />
+                    <textbox id="textCustomer" width="250px"/>
+                    <label value="SO/PO/Contract No. :"/>
+                    <textbox id="textContract" width="100px"/>
+                    <label value="SO/PO/Contract Date :"/>
+                    <datebox id="dateContract" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                
+                <row spans="1,1,4">
+                    <label value="Work Desc. :"  />
+                    <textbox id="textWorkDesc" cols="80" rows="6"/>
+                    <grid height="85px">
+                        <columns>
+                            <column width="116px" align="right" />
+                            <column width="150px" align="left" />
+                            <column width="130px" align="right" />
+                            <column width="100%" align="left" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="IPC No. :"/>
+                                <textbox id="textIPC" width="100px"/>
+                                <label value="IPC Date :"/>
+                                <datebox id="dateIPC" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                            <row spans="1,3">
+                                <label value="Project Start Date :"/>
+                                <datebox id="dateStartProject" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                            <row spans="1,3">
+                                <label value="Project End Date :"/>
+                                <datebox id="dateEndProject" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </row>
+                
+                <row spans="1,1,1,3">
+                    <label value="Unit Code :"  />
+                    <textbox id="searchBoxUnitCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                    <label value="Total Value :"  />
+                    <hbox>
+                        <textbox id="textTotalCode" width="150px" />
+                        <textbox id="textTotalValue" width="250px" />                    
+                    </hbox>
+                </row>
+                <row spans="1,1,1,3">
+                    <label value="Activity Code :"  />
+                    <textbox id="textActivityCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                    <label value="Contract Validation :"  />
+                    <textbox id="textContractValidation" width="250px" />
+                </row>
+                <row spans="1,5">
+                    <label value="Department :"  />
+                    <textbox id="textDepartment" width="250px"/>
+                </row>
+
+            </rows>     
+        </grid>   
+        
+        
+        <tabbox id="tabBoxProjectInfo" height="100%" width="100%" >
+            <tabs id="tabsProjectInfo" >
+                <tab id="tab_voucher" label="Voucher" closable="false"  />
+                <tab id="tab_invoice" label="Invoice" closable="false" selected="true"/>
+                <tab id="tab_progress" label="Progress" closable="false"/>
+                <tab id="tab_notes" label="Notes" closable="false" />
+            </tabs>
+            <tabpanels id="tabpanelsBoxProjectInfo" height="100%" width="100%"  >
+                
+                <!--Tab Panel Voucher-->
+                <tabpanel>
+                    <groupbox mold="3d" closable="false" >
+                        <caption label="  Voucher"/>
+                        <toolbar>
+                            <label value="Status"/>
+                            <combobox id="comboStatus">
+                                <comboitem id="1">Not Submitted</comboitem>
+                                <comboitem id="2">Submitted</comboitem>
+                                <comboitem id="3">Posted</comboitem>
+                                <comboitem id="4">All</comboitem>
+                            </combobox>
+                        </toolbar>
+                    
+                        <listbox id="listboxVoucher">
+                            <listhead>
+                                <listheader label="No." align="center"/>
+                                <listheader label="Voucher No." align="center"/>
+                                <listheader label="Voucher Date" align="center"/>
+                                <listheader label="Pay To" align="center"/>
+                                <listheader label="Description" align="center"/>
+                                <listheader label="Status" align="center"/>
+                                <listheader label="Approved By" align="center"/>
+                                <listheader label="Approved Date" align="center"/>
+                                <listheader label="Approved Amount" align="center"/>
+                                <listheader label="Approved Amount (Rp.)" align="center"/>
+                            </listhead>
+                        </listbox>
+                    </groupbox>
+                </tabpanel>
+                
+                <!--Tab Panel Invoice-->
+                <tabpanel>
+                    <groupbox mold="3d" closable="false" >
+                        <caption label=" Invoice"/>
+                        <listbox id="listboxInvoice">
+                            <listhead>
+                                <listheader label="No." align="center"/>
+                                <listheader label="Invoice No." align="center"/>
+                                <listheader label="Invoice Date" align="center"/>
+                                <listheader label="Customer" align="center"/>
+                                <listheader label="Invoicing Address" align="center"/>
+                                <listheader label="Description" align="center"/>
+                                <listheader label="Total Amount" align="center"/>
+                                <listheader label="PPN" align="center"/>
+                                <listheader label="Status" align="center"/>
+                            </listhead>
+                        </listbox>
+                    </groupbox>
+                </tabpanel>
+                
+                <!--Tab Panel Progress-->
+                <tabpanel>
+                    <groupbox mold="3d" closable="false" >
+                        <caption label=" Progress"/>
+                        <toolbar>
+                            <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddProgress" tooltip="Add Progress" tooltiptext="Add Progress"/>
+                            <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditProgress" tooltip="Edit Progress" tooltiptext="Edit Progress"/>
+                            <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteProgress" tooltip="Delete Progress" tooltiptext="Delete Progress"/>
+                        </toolbar>
+                        <listbox id="listboxProgress">
+                            <listhead>
+                                <listheader label="No." align="center"/>
+                                <listheader label="Date" align="center"/>
+                                <listheader label="Description" align="center"/>
+                                <listheader label="% Complete" align="center"/>
+                                <listheader label="Prepared By" align="center"/>
+                                <listheader label="Approved By" align="center"/>
+                                <listheader label="Remark" align="center"/>
+                            </listhead>
+                        </listbox>
+                    </groupbox>
+                </tabpanel>
+                
+                <!--Tab Panel Client Contact-->
+                <tabpanel>
+                    <groupbox mold="3d" closable="false" >
+                        <caption label=" Notes"/>
+                        <toolbar>
+                            <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddNotes" tooltip="Add Notes" tooltiptext="Add Notes"/>
+                            <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditNotes" tooltip="Edit Notes" tooltiptext="Edit Notes"/>
+                            <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteNotes" tooltip="Delete Notes" tooltiptext="Delete Notes"/>
+                        </toolbar>
+                        <listbox id="listboxNotes">
+                            <listhead>
+                                <listheader label="No." align="center"/>
+                                <listheader label="Date" align="center"/>
+                                <listheader label="Description" align="center"/>
+                                <listheader label="Action" align="center"/>
+                                <listheader label="Responsibility" align="center"/>
+                                <listheader label="Prepared By" align="center"/>
+                                <listheader label="Approved By" align="center"/>
+                                <listheader label="Remark" align="center"/>
+                                <listheader label="Attachment" align="center"/>
+                            </listhead>
+                        </listbox>
+                    </groupbox>
+                </tabpanel>
+            </tabpanels>
+        </tabbox>        
+    </window>
+</zk>

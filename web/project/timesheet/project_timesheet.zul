@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+    <style dynamic="true">
+        .z-toolbar a, .z-toolbar a:visited, .z-toolbar a:hover{
+        background-color:transparent;
+        border:0 none;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .p-vista .z-panel-children {
+        background-color: #008BB6;
+        border-bottom: 0 none;
+        }
+
+
+        /*div.z-progressmeter{
+        background:#FFF repeat-x 0 0;background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        border:1px solid #CFCFCF;text-align:left;height:15px;overflow:hidden;
+        }
+        span.z-progressmeter-img{
+        display:-moz-inline-box;display:inline-block;background:#FFF repeat-x 0 0;
+        background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        height:15px;line-height:0;font-size:0;}.z-separator-hor,
+        .z-separator-hor-bar{
+        height:7px;overflow:hidden;line-height:0;font-size:0;
+        }*/
+
+    </style>
+    <window id="windowProjectTimesheet" title="Project Timesheet"  >
+        <grid class="custom-grid">                                               
+            <columns>
+                <column width="120px" align="right" />
+                <column width="450px" align="left" />
+                <column width="120px" align="right" />
+                <column width="350px" align="left" />
+                <column width="130px" align="right" />
+                <column width="100%" align="left" />
+                <!--<column width="200px" align="left" />-->
+            </columns>
+            <rows>
+                <!--<row spans="1,2,2,2,2,1,1">-->
+                <row>
+                    <label value="Project Code :"  />
+                    <hbox>
+                        <bandbox id="bdProjectCode" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                            <bandpopup>
+                                <hbox>Projek Code : 
+                                    <textbox id="searchBoxProjectCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                </hbox>
+                                <listbox id="listboxBdProjectCode" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdProjectCode.close();">
+                                    <listhead>
+                                        <listheader width="100px" align="center">
+                                            <label multiline="true" value="Kode Projek"  />
+                                        </listheader>
+                                        <listheader width="300px" align="center">
+                                            <label multiline="true" value="Nama Projek"  />
+                                        </listheader>
+                                    </listhead>
+                                </listbox>
+                            </bandpopup>
+                        </bandbox>
+                    </hbox>
+                    <label value="Unit Code :"  />
+                    <textbox id="textUnitCode" width="250px" />
+                    <label value="SO/PO/Contract No. :"/>
+                    <textbox id="textContract" width="100px"/>
+                </row>
+                
+                
+                <row>
+                    <label value="Customer :"  />
+                    <textbox id="textCustomer" width="250px"/>
+                    <label value="Activity Code :"  />
+                    <textbox id="textActivityCode" width="250px"/>
+                    <label value="SO/PO/Contract Date :"/>
+                    <datebox id="dateContract" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                
+                <row spans="1,1,4">
+                    <label value="Work Desc. :"  />
+                    <textbox id="textWorkDesc" cols="80" rows="6"/>
+                    <grid height="85px">
+                        <columns>
+                            <column width="116px" align="right" />
+                            <column width="350px" align="left" />
+                            <column width="130px" align="right" />
+                            <column width="100%" align="left" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="Department :"  />
+                                <textbox id="textDepartment" width="250px"/>
+                                <label value="IPC No. :"/>
+                                <textbox id="textIPC" width="100px"/>
+                            </row>
+                            <row spans="3,1">
+                                <label value="IPC Date :"/>
+                                <datebox id="dateIPC" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </row>
+                
+
+            </rows>     
+        </grid>   
+        
+        
+        <groupbox mold="3d" closable="false" >
+            <caption label=" Project Timesheet"/>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddProgres" tooltip="Add Timesheet" tooltiptext="Add Timesheet"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditTimesheet" tooltip="Edit Timesheet" tooltiptext="Edit Timesheet"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteTimesheet" tooltip="Delete Timesheet" tooltiptext="Delete Timesheet"/>
+            </toolbar>
+            <listbox id="listboxTimesheet">
+                <listhead>
+                    <listheader label="No." align="center"/>
+                    <listheader label="Entry Date" align="center"/>
+                    <listheader label="Prepared By" align="center"/>
+                    <listheader label="Prepared Date" align="center"/>
+                    <listheader label="Checked By" align="center"/>
+                    <listheader label="Checked Date" align="center"/>
+                    <listheader label="Approved By" align="center"/>
+                    <listheader label="Approved Date" align="center"/>
+                    <listheader label="Description" align="center"/>
+                </listhead>
+            </listbox>
+        </groupbox>
+
+    </window>
+</zk>

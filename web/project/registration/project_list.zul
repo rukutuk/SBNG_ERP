@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowProjectList" title="Project List" apply="hasil.data.project.registration.ProjectListController">
+        <toolbar>
+            <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAdd" tooltip="Add" tooltiptext="Add"/>
+            <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEdit" tooltip="Edit" tooltiptext="Edit"/>
+            <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDelete" tooltip="Delete" tooltiptext="Delete"/>
+        </toolbar>
+
+        <listbox id="listboxProject">
+            <listhead>
+                <listheader label="No. " align="center"/>
+                <listheader label="Project Code" align="center"/>
+                <listheader label="Customer" align="center"/>
+                <listheader label="Work&#13;&#10;Description" align="center"/>
+                <listheader label="Activity Code" align="center"/>
+                <listheader label="O.R No." align="center"/>
+                <listheader label="O.R Date" align="center"/>
+                <listheader label="PO No." align="center"/>
+                <listheader label="PO Date" align="center"/>
+                <listheader label="IPC No." align="center"/>
+                <listheader label="IPC Date" align="center"/>
+                <listheader label="Act Start Date" align="center"/>
+                <listheader label="Act End Date" align="center"/>
+                <listheader label="Validation Date" align="center"/>
+            </listhead>
+        </listbox>
+    </window>
+</zk>

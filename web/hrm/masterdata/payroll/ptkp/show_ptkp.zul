@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowPtkp" title="Add PTKP" apply="hasil.data.hrm.masterdata.payroll.ptkp.ShowPtkpController">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  PTKP"/>
+            <listbox id="listboxPtkp">
+                <listhead>
+                    <listheader label="Name" align="center"/>
+                    <listheader label="Description" align="center"/>
+                    <listheader label="Value (Yearly)" align="center"/>
+                </listhead>                
+            </listbox>
+
+        </groupbox>
+        
+        <toolbar>
+            <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPTKP" tooltip="Add PTKP" tooltiptext="Add PTKP"/>
+            <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPTKP" tooltip="Edit PTKP" tooltiptext="Edit PTKP"/>
+            <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePTKP" tooltip="Delete PTKP" tooltiptext="Delete PTKP"/>
+        </toolbar>
+
+
+        
+    </window>
+</zk>

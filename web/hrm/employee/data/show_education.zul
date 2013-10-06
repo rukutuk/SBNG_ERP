@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowEducation" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Education"/>
+            <listbox id="listboxShowEducation">
+                <listhead>
+                    <listheader label="Grade" align="center"/>
+                    <listheader label="Major Study" align="center"/>
+                    <listheader label="Institute" align="center"/>
+                    <listheader label="From" align="center"/>
+                    <listheader label="To" align="center"/>
+                    <listheader label="GPA" align="center"/>
+                    <listheader label="Max. GPA" align="center"/>
+                    <listheader label="Description" align="center"/>
+                </listhead>
+            </listbox>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Grade :"/>
+                        <textbox id="textGrade" width="400px"/>
+                        <label value="Major Study :"/>
+                        <textbox id="textMajorStudy" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Institute :"/>
+                        <textbox id="textInstitute" width="400px"/>
+                        <label value="From :"/>
+                        <textbox id="textFrom" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="To :"/>
+                        <textbox id="textTo" width="400px"/>
+                        <label value="GPA :"/>
+                        <textbox id="textGPA" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Max. GPA :"/>
+                        <textbox id="textMaxGPA" width="400px"/>
+                        <label value="Description :"/>
+                        <textbox id="textDescription" cols="50" rows="5"/>
+                    </row>
+                </rows>
+            </grid>
+            
+            <groupbox mold="3d" closable="false" >
+                <caption label="  Certificate Attachments"/>
+                <grid>
+                    <columns>
+                        <column width="118px" align="right" />
+                        <column width="218px" align="left" />
+                        <column width="100px" align="left" />
+                        <column width="100%" align="left" />
+                    </columns>                        
+                    <rows>
+                        <row spans="1,1,2">
+                            File Path : <textbox id="filePathCertificate"/>
+                            <button id="btnUploadsCertificate" label="Uploads" upload="true,multiple=true"/>
+                        </row>
+                        <row>
+                            File Name : <textbox id="fileNameCertificate"/>
+                            <button id="btnDownloadsCertificate" label="Downloads" upload="true,multiple=true"/>
+                            <button id="btnDeleteCertificate" label="Delete" upload="true,multiple=true"/>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>    
+
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddEducation" tooltip="Add Education" tooltiptext="Add Education"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditEducation" tooltip="Edit Education" tooltiptext="Edit Education"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteEducation" tooltip="Delete Education" tooltiptext="Delete Education"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveEducation" tooltip="Save Education" tooltiptext="Save Education"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelEducation" tooltip="Cancel Education" tooltiptext="Cancel Education"/>
+            </toolbar>
+
+
+        </groupbox>
+
+    </window>
+</zk>

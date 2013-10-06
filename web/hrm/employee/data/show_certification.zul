@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowCert" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Certification"/>
+            <listbox id="listboxShowCertification">
+                <listhead>
+                    <listheader label="Certificate No." align="center"/>
+                    <listheader label="Certificate Date" align="center"/>
+                    <listheader label="Institution" align="center"/>
+                    <listheader label="Qualification" align="center"/>
+                    <listheader label="Description" align="center"/>
+                    <listheader label="Start Course Date" align="center"/>
+                    <listheader label="End Course Date" align="center"/>
+                    <listheader label="Expiry Date" align="center"/>
+                    <listheader label="Result" align="center"/>
+                </listhead>
+            </listbox>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Certificate No. :"/>
+                        <textbox id="textCertificateNo" width="400px"/>
+                        <label value="Certificate Date :"/>
+                        <datebox id="dateCertificateDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>
+                        <label value="Institution :"/>
+                        <textbox id="textInstitution" width="400px"/>
+                        <label value="Qualification :"/>
+                        <textbox id="textQualification" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Description :"/>
+                        <textbox id="textDescription" width="400px"/>
+                        <label value="Start Course Date :"/>
+                        <datebox id="dateStartCourseDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>
+                        <label value="End Course Date :"/>
+                        <datebox id="dateEndCourseDate" width="100px" format="dd-MM-yyyy"/>
+                        <label value="Expiry Date :"/>
+                        <datebox id="dateExpiryDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>
+                        <label value="Result :"/>
+                        <textbox id="textResult" width="400px"/>
+                    </row>
+                </rows>
+            </grid>
+
+            <groupbox mold="3d" closable="false" >
+                <caption label="  Certificate Attachment"/>
+                <grid>
+                    <columns>
+                        <column width="118px" align="right" />
+                        <column width="218px" align="left" />
+                        <column width="100px" align="left" />
+                        <column width="100%" align="left" />
+                    </columns>                        
+                    <rows>
+                        <row spans="1,1,2">
+                            File Path : <textbox id="filePathCertificate"/>
+                            <button id="btnUploadsCertificate" label="Uploads" upload="true,multiple=true"/>
+                        </row>
+                        <row>
+                            File Name : <textbox id="fileNameCertificate"/>
+                            <button id="btnDownloadsCertificate" label="Downloads" upload="true,multiple=true"/>
+                            <button id="btnDeleteCertificate" label="Delete" upload="true,multiple=true"/>
+                        </row>
+                    </rows>
+                </grid>
+            </groupbox>    
+            
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddCertification" tooltip="Add Certification" tooltiptext="Add Certification"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditCertification" tooltip="Edit Certification" tooltiptext="Edit Certification"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteCertification" tooltip="Delete Certification" tooltiptext="Delete Certification"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveCertification" tooltip="Save Certification" tooltiptext="Save Certification"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelCertification" tooltip="Cancel Certification" tooltiptext="Cancel Certification"/>
+            </toolbar>
+
+
+        </groupbox>
+
+    </window>
+</zk>

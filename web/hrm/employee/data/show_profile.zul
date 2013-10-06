@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowProfile">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Profile"/>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <!--<row spans="1,2,2,2,2,1,1">-->
+                    <row>
+                        <label value="Employee No :"/>
+                        <textbox id="textEmpNo" width="400px"/>
+                        <label value="First Name :"/>
+                        <textbox id="textFirstName" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Middle Name :"/>
+                        <textbox id="textMiddleName" width="400px"/>
+                        <label value="Last Name :"/>
+                        <textbox id="textLastName" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Nick Name :"/>
+                        <textbox id="textNickName" width="400px"/>
+                        <label value="Birth Place :"/>
+                        <textbox id="textBirthPlace" width="400px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Birth Date :"/>
+                        <datebox id="dateBirthDate" width="100px" format="dd-MM-yyyy" constraint="no empty"/>
+                        <label value="Sex :"/>
+                        <textbox id="textSex" width="400px" constraint="no empty"/>
+                    </row>
+                    <row> 
+                        <label value="Job Title :"/>
+                        <textbox id="textJobTitle" width="400px"/>                     
+                        <label value="Department :"/>
+                        <textbox id="textDepartment" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="UnitCode :"/>
+                        <textbox id="textUnit Code" width="400px"/>                     
+                        <label value="Education :"/>
+                        <textbox id="textEducation" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Qualification :"/>
+                        <textbox id="textQualification" width="400px"/>
+                        <label value="Religion :"/>
+                        <textbox id="textReligion" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Nationality :"/>
+                        <textbox id="textNationality" width="400px"/>
+                        <label value="Marital Status :"/>
+                        <textbox id="textMaritalStatus" width="400px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Tax Art 21 Status :"/>
+                        <textbox id="textTaxArt21Status" width="400px" constraint="no empty"/>
+                        <label value="Address :"/>
+                        <textbox id="textAddress" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="City :"/>
+                        <textbox id="textCity" width="400px"/>
+                        <label value="Post Code :"/>
+                        <intbox id="textPostCode" width="200px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Province :"/>
+                        <textbox id="textProvince" width="400px"/>
+                        <label value="Country :"/>
+                        <textbox id="textCountry" width="400px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Phone :"/>
+                        <textbox id="textPhone" width="400px"/>
+                        <label value="Mobile Phone 1 :"/>
+                        <textbox id="textMobilePhone_1" width="400px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Mobile Phone 2 :"/>
+                        <textbox id="textMobilePhone_2" width="400px"/>                     
+                        <label value="Fax :"/>
+                        <textbox id="textFax" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="Email :"/>
+                        <textbox id="textEmail" width="400px"/>
+                        <label value="Status :"/>
+                        <textbox id="textStatus" width="400px"/>                     
+                    </row>
+                </rows>
+            </grid>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveProfile" tooltip="Save Profile" tooltiptext="Save Profile"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelProfile" tooltip="Cancel Profile" tooltiptext="Cancel Profile"/>
+            </toolbar>
+
+        </groupbox>
+        
+        
+
+    </window>
+</zk>

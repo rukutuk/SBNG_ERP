@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowAccount" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Account"/>
+            <listbox id="listboxShowAccount">
+                <listhead>
+                    <listheader label="Account Name" align="center"/>
+                    <listheader label="Account No" align="center"/>
+                    <listheader label="Bank Name" align="center"/>
+                    <listheader label="Bank Address" align="center"/>
+                    <listheader label="Currency" align="center"/>
+                    <listheader label="Remark" align="center"/>
+                </listhead>
+            </listbox>
+            
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Account Name :"/>
+                        <textbox id="textAccountName" width="400px"/>
+                        <label value="Account No :"/>
+                        <textbox id="textAccountNo" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Bank Name :"/>
+                        <textbox id="textBankName" width="400px"/>
+                        <label value="Bank Address :"/>
+                        <textbox id="textBankAddress" width="400px"/>
+                    </row>
+                    <row>
+                        <label value="Currency :"/>
+                        <textbox id="textCurrency" width="400px"/>
+                        <label value="Remark :"/>
+                        <textbox id="textRemark" width="400px"/>
+                    </row>
+                </rows>
+            </grid>
+
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddAccount" tooltip="Add Account" tooltiptext="Add Account"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditAccount" tooltip="Edit Account" tooltiptext="Edit Account"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteAccount" tooltip="Delete Account" tooltiptext="Delete Account"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveAccount" tooltip="Save Account" tooltiptext="Save Account"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelAccount" tooltip="Cancel Account" tooltiptext="Cancel Account"/>
+            </toolbar>
+
+        </groupbox>
+
+    </window>
+</zk>

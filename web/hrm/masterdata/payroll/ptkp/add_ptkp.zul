@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowAddPTKP" title="Add PTKP" width="600px" apply="hasil.data.hrm.masterdata.payroll.ptkp.AddPtkpController">
+        <grid class="custom-grid" width="600px">
+            <columns>
+                <column width="120px" align="right" />
+                <column width="100%" align="left" />
+            </columns>
+            <rows>
+                <row>
+                    <label value="Name :"/>
+                    <textbox id="textName" width="400px"/>
+                </row>
+                <row> 
+                    <label value="Description :"  />
+                    <textbox id="textDescription" cols="80" rows="6"/>                         
+                </row>
+                <row>
+                    <label value="Value (Yearly) :"/>
+                    <doublebox id="bdValueYearly" width="100px"/>
+                </row>
+            </rows>
+        </grid>
+        <toolbar>
+            <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSavePTKP" tooltip="Save PTKP" tooltiptext="Save PTKP"/>
+            <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelPTKP" tooltip="Cancel PTKP" tooltiptext="Cancel PTKP"/>
+        </toolbar>
+
+    </window>
+</zk>

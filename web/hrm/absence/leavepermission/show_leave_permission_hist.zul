@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowLeavePermissionHist" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Leave and Permission History"/>
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="100px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100px" align="left" />
+                    <column width="270px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Total Proposed :"/>
+                        <intbox id="textTotalProposed" width="50px"/>
+                        <label value="Total Days :"/>
+                        <intbox id="textTotalDays" width="50px"/>
+                        <label value="Total Days Deducting Annual Leave Right :"/>
+                        <hbox>
+                        <intbox id="textTotalDaysDeductingAnnualLeaveRight" width="50px"/>
+                        <label value="(based on proposed date)"/>
+                        </hbox>
+                    </row>
+                </rows>
+            </grid>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_search2_16x16.gif" id="btnSearchLeaveHistory" tooltip="Search Leave History" tooltiptext="Search Leave History"/>
+            </toolbar>
+            
+            <listbox id="listboxLeavePermHist">
+                <listhead>
+                    <listheader label="No" align="center"/>
+                    <listheader label="Type" align="center"/>
+                    <listheader label="Reason" align="center"/>
+                    <listheader label="Deduction" align="center"/>
+                    <listheader label="Proposed Date" align="center"/>
+                    <listheader label="From" align="center"/>
+                    <listheader label="To" align="center"/>
+                    <listheader label="Days #" align="center"/>
+                    <listheader label="Replaced By" align="center"/>
+                    <listheader label="Checked By" align="center"/>
+                    <listheader label="Checked Date" align="center"/>
+                    <listheader label="Approved By" align="center"/>
+                    <listheader label="Approved Date" align="center"/>
+                </listhead>
+            </listbox>
+
+
+        </groupbox>
+
+        
+    </window>
+</zk>

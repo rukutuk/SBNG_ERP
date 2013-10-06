@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowOfficeHourPerm" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Office Hour Permission"/>
+            <grid class="custom-grid">                                               
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>
+                    <row>
+                        <label value="Proposed Date :"/>
+                        <datebox id="dateProposed Date" width="100px" format="dd-MM-yyyy"/>
+                        <label value="Permission Date :"/>
+                        <datebox id="datePermission Date" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>
+                        <label value="From :"/>
+                        <textbox id="textFrom" width="400px"/>
+                        <label value="To :"/>
+                        <textbox id="textTo" width="400px"/>
+                    </row>
+                    <row spans="1,3">
+                        <label value="Reason :"/>
+                        <combobox id="comboReason"/> 
+                    </row>
+                    <row>
+                        <label value="Checked By :"/>
+                        <hbox>
+                            <bandbox id="bdCheckedBy" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                <bandpopup>
+                                    <hbox>Checked By : 
+                                        <textbox id="searchBoxCheckedBy" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                    </hbox>
+                                    <listbox id="listboxBdCheckedBy" height="150px" width="400px" 
+                                             mold="paging" autopaging="true" 
+                                             onSelect="bdCustomer.value=self.selectedItem.label; bdCheckedBy.close();">
+                                        <listhead>
+                                            <listheader width="100px" align="center">
+                                                <label multiline="true" value="NIP"  />
+                                            </listheader>
+                                            <listheader width="300px" align="center">
+                                                <label multiline="true" value="Nama"  />
+                                            </listheader>
+                                        </listhead>
+                                    </listbox>
+                                </bandpopup>
+                            </bandbox>
+                        </hbox>
+                        <label value="Checked Date :"/>
+                        <datebox id="dateCheckedDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>
+                    <row>
+                        <label value="Approved By :"/>
+                        <hbox>
+                            <bandbox id="bdApprovedBy" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                <bandpopup>
+                                    <hbox>Approved By : 
+                                        <textbox id="searchBoxApprovedBy" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                    </hbox>
+                                    <listbox id="listboxBdApprovedBy" height="150px" width="400px" 
+                                             mold="paging" autopaging="true" 
+                                             onSelect="bdCustomer.value=self.selectedItem.label; bdApprovedBy.close();">
+                                        <listhead>
+                                            <listheader width="100px" align="center">
+                                                <label multiline="true" value="NIP"  />
+                                            </listheader>
+                                            <listheader width="300px" align="center">
+                                                <label multiline="true" value="Nama"  />
+                                            </listheader>
+                                        </listhead>
+                                    </listbox>
+                                </bandpopup>
+                            </bandbox>
+                        </hbox>
+                        <label value="Approved Date :"/>
+                        <datebox id="dateApprovedDate" width="100px" format="dd-MM-yyyy"/>
+                    </row>                    
+                    <row spans="1,3"> 
+                        <label value="Description :"  />
+                        <textbox id="textDescription" cols="80" rows="6"/>                                               
+                    </row>
+                </rows>
+            </grid>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_search2_16x16.gif" id="btnSearchOfficeHour" tooltip="Search Office Hour" tooltiptext="Search Office Hour"/>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddOfficeHour" tooltip="Add Office Hour" tooltiptext="Add Office Hour"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditOfficeHour" tooltip="Edit Office Hour" tooltiptext="Edit Office Hour"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteOfficeHour" tooltip="Delete Office Hour" tooltiptext="Delete Office Hour"/>
+                <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveOfficeHour" tooltip="Save Office Hour" tooltiptext="Save Office Hour"/>
+                <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelOfficeHour" tooltip="Cancel Office Hour" tooltiptext="Cancel Office Hour"/>
+            </toolbar>
+
+
+        </groupbox>
+
+    </window>
+</zk>

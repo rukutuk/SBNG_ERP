@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+    <style dynamic="true">
+        .z-toolbar a, .z-toolbar a:visited, .z-toolbar a:hover{
+        background-color:transparent;
+        border:0 none;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .vista {
+        background:#000000 url(${c:encodeURL('/img/bar2.png')}) repeat-x 0 0;
+        color:white;
+        padding-top:7px;
+        }
+        .p-vista .z-panel-children {
+        background-color: #008BB6;
+        border-bottom: 0 none;
+        }
+
+
+        /*div.z-progressmeter{
+        background:#FFF repeat-x 0 0;background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        border:1px solid #CFCFCF;text-align:left;height:15px;overflow:hidden;
+        }
+        span.z-progressmeter-img{
+        display:-moz-inline-box;display:inline-block;background:#FFF repeat-x 0 0;
+        background-image:url(${c:encodeURL('/img/prgmeter-anim.gif')});
+        height:15px;line-height:0;font-size:0;}.z-separator-hor,
+        .z-separator-hor-bar{
+        height:7px;overflow:hidden;line-height:0;font-size:0;
+        }*/
+
+    </style>
+    <window id="windowAddProjectInfo" title="Project Information"  >
+        <grid class="custom-grid">                                               
+            <columns>
+                <column width="120px" align="right" />
+                <column width="450px" align="left" />
+                <column width="120px" align="right" />
+                <column width="150px" align="left" />
+                <column width="130px" align="right" />
+                <column width="100%" align="left" />
+                <!--<column width="200px" align="left" />-->
+            </columns>
+            <rows>
+                <!--<row spans="1,2,2,2,2,1,1">-->
+                <row  spans="1,1,3,1">
+                    <label value="Project Code :"  />
+                    <hbox>
+                        <bandbox id="bdProjectCode" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                            <bandpopup>
+                                <hbox>Nama Projek : 
+                                    <textbox id="searchBoxProjectCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                </hbox>
+                                <listbox id="listboxBdProjectCode" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdProjectCode.close();">
+                                    <listhead>
+                                        <listheader width="100px" align="center">
+                                            <label multiline="true" value="Kode Projek"  />
+                                        </listheader>
+                                        <listheader width="300px" align="center">
+                                            <label multiline="true" value="Nama Projek"  />
+                                        </listheader>
+                                    </listhead>
+                                </listbox>
+                            </bandpopup>
+                        </bandbox>
+                    </hbox>
+                    <label value="Reg Date"/>
+                    <datebox id="dateReg" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                
+                
+                <row>
+                    <label value="Customer :"  />
+                    <hbox>
+                        <bandbox id="bdCustomer" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                            <bandpopup>
+                                <hbox>Nama Customer : 
+                                    <textbox id="searchBoxCustomer" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                </hbox>
+                                <listbox id="listboxBdCustomer" height="150px" width="400px" 
+                                         mold="paging" autopaging="true" 
+                                         onSelect="bdCustomer.value=self.selectedItem.label; bdCustomer.close();">
+                                    <listhead>
+                                        <listheader width="100px" align="center">
+                                            <label multiline="true" value="Kode Customer"  />
+                                        </listheader>
+                                        <listheader width="300px" align="center">
+                                            <label multiline="true" value="Nama Customer"  />
+                                        </listheader>
+                                    </listhead>
+                                </listbox>
+                            </bandpopup>
+                        </bandbox>
+                    </hbox>
+                    <label value="O.R No"/>
+                    <textbox id="textOR" width="100px"/>
+                    <label value="O.R Date"/>
+                    <datebox id="dateOR" width="100px" format="dd-MM-yyyy"/>
+                </row>
+                
+                <row spans="1,1,4">
+                    <label value="Work Desc. :"  />
+                    <textbox id="textWorkDesc" cols="80" rows="5"/>
+                    <grid height="80px">
+                        <columns>
+                            <column width="116px" align="right" />
+                            <column width="150px" align="left" />
+                            <column width="130px" align="right" />
+                            <column width="100%" align="left" />
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="SO/PO/Contract No."/>
+                                <textbox id="textContract" width="100px"/>
+                                <label value="SO/PO/Contract Date"/>
+                                <datebox id="dateContract" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                            <row>
+                                <label value="IPC No."/>
+                                <textbox id="textIPC" width="100px"/>
+                                <label value="IPC Date"/>
+                                <datebox id="dateIPC" width="100px" format="dd-MM-yyyy"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </row>
+                
+                <row spans="2,4">
+                    <grid>
+                        <columns>
+                            <column width="118px" align="right" />
+                            <column width="100%" align="left" />
+                        </columns>                        
+                        <rows>
+                            
+                                                
+                            <!--<row spans="1,1,4">-->
+                            <row>
+                                <label value="Unit Code :"  />
+                                <hbox>
+                                    <bandbox id="bdUnitCode" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                        <bandpopup>
+                                            <hbox>Nama Unit : 
+                                                <textbox id="searchBoxUnitCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                            </hbox>
+                                            <listbox id="listboxBdUnitCode" height="150px" width="400px" 
+                                                     mold="paging" autopaging="true" 
+                                                     onSelect="bdUnitCode.value=self.selectedItem.label; bdUnitCode.close();">
+                                                <listhead>
+                                                    <listheader width="100px" align="center">
+                                                        <label multiline="true" value="Kode Unit"  />
+                                                    </listheader>
+                                                    <listheader width="300px" align="center">
+                                                        <label multiline="true" value="Nama Unit"  />
+                                                    </listheader>
+                                                </listhead>
+                                            </listbox>
+                                        </bandpopup>
+                                    </bandbox>
+                                </hbox>
+                            </row>
+                            <row spans="1,1,4">
+                                <label value="Activity Code :"  />
+                                <hbox>
+                                    <bandbox id="bdActivityCode" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                        <bandpopup>
+                                            <hbox>Nama Activity : 
+                                                <textbox id="searchBoxActivityCode" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                            </hbox>
+                                            <listbox id="listboxBdActivityCode" height="150px" width="400px" 
+                                                     mold="paging" autopaging="true" 
+                                                     onSelect="bdActivityCode.value=self.selectedItem.label; bdActivityCode.close();">
+                                                <listhead>
+                                                    <listheader width="100px" align="center">
+                                                        <label multiline="true" value="Kode Activity"  />
+                                                    </listheader>
+                                                    <listheader width="300px" align="center">
+                                                        <label multiline="true" value="Nama Activity"  />
+                                                    </listheader>
+                                                </listhead>
+                                            </listbox>
+                                        </bandpopup>
+                                    </bandbox>
+                                </hbox>
+                            </row>
+                            <row spans="1,1,4">
+                                <label value="Department :"  />
+                                <hbox>
+                                    <bandbox id="bdDepartment" mold="rounded" autodrop="true" readonly="true" width="350px" constraint="no empty"> 
+                                        <bandpopup>
+                                            <hbox>Nama Department : 
+                                                <textbox id="searchBoxDepartment" width="250px" ctrlKeys="#down#up" focus="true"/>
+                                            </hbox>
+                                            <listbox id="listboxBdDepartment" height="150px" width="400px" 
+                                                     mold="paging" autopaging="true" 
+                                                     onSelect="bdDepartment.value=self.selectedItem.label; bdDepartment.close();">
+                                                <listhead>
+                                                    <listheader width="100px" align="center">
+                                                        <label multiline="true" value="Kode Department"  />
+                                                    </listheader>
+                                                    <listheader width="300px" align="center">
+                                                        <label multiline="true" value="Nama Department"  />
+                                                    </listheader>
+                                                </listhead>
+                                            </listbox>
+                                        </bandpopup>
+                                    </bandbox>
+                                </hbox>
+                            </row>
+                        </rows>
+                    </grid>
+                    
+                    <groupbox mold="3d" closable="false" >
+                        <caption label="  Calculation Sheet Attachment"/>
+                        <grid>
+                            <columns>
+                                <column width="118px" align="right" />
+                                <column width="218px" align="left" />
+                                <column width="100px" align="left" />
+                                <column width="100%" align="left" />
+                            </columns>                        
+                            <rows>
+                                <row spans="1,1,2">
+                                    File Path : <textbox id="filePath"/>
+                                    <button id="btnUploads" label="Uploads" upload="true,multiple=true"/>
+                                </row>
+                                <row>
+                                    File Name : <textbox id="fileName"/>
+                                    <button id="btnDownloads" label="Downloads" upload="true,multiple=true"/>
+                                    <button id="btnDelete" label="Delete" upload="true,multiple=true"/>
+                                </row>
+                            </rows>
+                        </grid>
+                    </groupbox>
+                </row>
+            </rows>     
+        </grid>   
+        
+        
+        <tabbox id="tabBoxProjectInfo" height="100%" width="100%" >
+            <tabs id="tabsProjectInfo" >
+                <tab id="tab_personel" label="Personel" closable="false" />
+                <tab id="tab_contract" label="Contract" closable="false" />
+                <tab id="tab_partner" label="Partner" closable="false" selected="true"/>
+                <tab id="tab_client_contact" label="Client Contact" closable="false" />
+                <tab id="tab_location" label="Location" closable="false" />
+            </tabs>
+            <tabpanels id="tabpanelsBoxProjectInfo" height="100%" width="100%"  >
+                
+                <!--Tab Panel Personel-->
+                <tabpanel>
+                    <toolbar>
+                        <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPersonel" tooltip="Add" tooltiptext="Add"/>
+                        <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePersonel" tooltip="Delete" tooltiptext="Delete"/>
+                        <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPersonel" tooltip="Edit" tooltiptext="Edit"/>
+                        <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSavePersonel" tooltip="Save" tooltiptext="Save"/>
+                        <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelPersonel" tooltip="Cancel" tooltiptext="Cancel"/>
+                    </toolbar>
+                    
+                    <listbox id="listboxPersonel">
+                        <listhead>
+                            <listheader label="No." align="center"/>
+                            <listheader label="Name" align="center"/>
+                            <listheader label="Position" align="center"/>
+                            <listheader label="Qualification" align="center"/>
+                            <listheader label="Task" align="center"/>
+                            <listheader label="Work Desc" align="center"/>
+                            <listheader label="Employee Status" align="center"/>
+                        </listhead>
+                    </listbox>
+                    <groupbox mold="3d" closable="false" >
+                        <caption label="  Project Organization Attachment"/>
+                        <grid>
+                            <columns>
+                                <column width="118px" align="right" />
+                                <column width="218px" align="left" />
+                                <column width="100px" align="left" />
+                                <column width="100%" align="left" />
+                            </columns>                        
+                            <rows>
+                                <row spans="1,1,2">
+                                    File Path : <textbox id="filePathProject"/>
+                                    <button id="btnUploadsProject" label="Uploads" upload="true,multiple=true"/>
+                                </row>
+                                <row>
+                                    File Name : <textbox id="fileNameProject"/>
+                                    <button id="btnDownloadsProject" label="Downloads" upload="true,multiple=true"/>
+                                    <button id="btnDeleteProject" label="Delete" upload="true,multiple=true"/>
+                                </row>
+                            </rows>
+                        </grid>
+                    </groupbox>                    
+                </tabpanel>
+                
+                <!--Tab Panel Contract-->
+                <tabpanel>
+                    <hbox>
+                        <grid width="500px">
+                            <columns>
+                                <column align="right" width="150px"/>
+                                <column align="left" width="350px"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <label value="Estimate Start Date"/>
+                                    <datebox id="dateStartEstimate" format="dd-MM-yyyy"/>
+                                </row>
+                                <row>
+                                    <label value="Estimate End Date"/>
+                                    <datebox id="dateEndEstimate" format="dd-MM-yyyy"/>
+                                </row>
+                                <row>
+                                    <label value="Actual Start Date"/>
+                                    <datebox id="dateStartActual" format="dd-MM-yyyy"/>
+                                </row>
+                                <row>
+                                    <label value="Actual End Date"/>
+                                    <datebox id="dateEndActual" format="dd-MM-yyyy"/>
+                                </row>
+                                <row>
+                                    <label value="Total Value"/>
+                                    <hbox>
+                                        <combobox id="comboTotalValue"/>
+                                        <decimalbox id="totalValue"/>
+                                    </hbox>
+                                </row>
+                                <row>
+                                    <label value="Tax Status"/>
+                                    <hbox>
+                                        <radiogroup id="radioGroupTaxStatus">
+                                            <radio id="includeTax"/>Include PPN
+                                            <space width="10px"/>
+                                            <radio id="excludeTax"/>Exclude PPN
+                                        </radiogroup>
+                                    </hbox>
+                                </row>
+                                <row>
+                                    <label value="Contract Validation"/>
+                                    <hbox>
+                                        <textbox id="textContractValidation"/>
+                                    </hbox>
+                                </row>
+                                <row>
+                                    <label value="Description"/>
+                                    <hbox>
+                                        <textbox id="textDescription" cols="60" rows="5"/>
+                                    </hbox>
+                                </row>
+                            </rows>
+                        </grid>
+                        
+                        <vbox>
+                            <groupbox mold="3d" closable="false" >
+                                <caption label="  Payment Term"/>
+                                <toolbar>
+                                    <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPayment" tooltip="Add" tooltiptext="Add"/>
+                                    <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPayment" tooltip="Edit" tooltiptext="Edit"/>
+                                    <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePayment" tooltip="Delete" tooltiptext="Delete"/>
+                                    <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveContract" tooltip="Save Contract" tooltiptext="Save Contract"/>
+                                    <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelContract" tooltip="Cancel Contract" tooltiptext="Cancel Contract"/>
+                                </toolbar>
+                                <listbox id="listboxPaymentTerm">
+                                    <listhead>
+                                        <listheader label="No." align="center"/>
+                                        <listheader label="Description" align="center"/>
+                                        <listheader label="Value" align="center"/>
+                                        <listheader label="% Completed" align="center"/>
+                                    </listhead>
+                                </listbox>
+
+                            </groupbox>     
+                            <groupbox mold="3d" closable="false" >
+                                <caption label="  Project Contract Attachment"/>
+                                <grid>
+                                    <columns>
+                                        <column width="118px" align="right" />
+                                        <column width="218px" align="left" />
+                                        <column width="100px" align="left" />
+                                        <column width="100%" align="left" />
+                                    </columns>                        
+                                    <rows>
+                                        <row spans="1,1,2">
+                                            File Path : <textbox id="filePathContract"/>
+                                            <button id="btnUploadsContract" label="Uploads" upload="true,multiple=true"/>
+                                        </row>
+                                        <row>
+                                            File Name : <textbox id="fileNameContract"/>
+                                            <button id="btnDownloadsContract" label="Downloads" upload="true,multiple=true"/>
+                                            <button id="btnDeleteContract" label="Delete" upload="true,multiple=true"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                            </groupbox>      
+                        </vbox>
+                    </hbox>
+                </tabpanel>
+                
+                <!--Tab Panel Partner-->
+                <tabpanel>
+                    <toolbar>
+                        <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPartner" tooltip="Add Partner" tooltiptext="Add Partner"/>
+                        <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPartner" tooltip="Edit Partner" tooltiptext="Edit Partner"/>
+                        <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePartner" tooltip="Delete Partner" tooltiptext="Delete Partner"/>
+                    </toolbar>
+                    <listbox id="listboxPartner">
+                        <listhead>
+                            <listheader label="No." align="center"/>
+                            <listheader label="Code" align="center"/>
+                            <listheader label="Group" align="center"/>
+                            <listheader label="Name" align="center"/>
+                            <listheader label="Address" align="center"/>
+                            <listheader label="City" align="center"/>
+                            <listheader label="Postcode" align="center"/>
+                            <listheader label="Country" align="center"/>
+                            <listheader label="Phone1" align="center"/>
+                            <listheader label="Phone2" align="center"/>
+                            <listheader label="Fax" align="center"/>
+                            <listheader label="Email" align="center"/>
+                            <listheader label="Website" align="center"/>
+                        </listhead>
+                    </listbox>
+                    
+
+                </tabpanel>
+                
+                <!--Tab Panel Client Contact-->
+                <tabpanel>
+                    <toolbar left="10">
+                        <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddClient" tooltip="Add Client" tooltiptext="Add Client"/>
+                        <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteClient" tooltip="Delete Client" tooltiptext="Delete Client"/>
+                        <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveClient" tooltip="Save Client" tooltiptext="Save Client"/>
+                        <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelClient" tooltip="Cancel Client" tooltiptext="Cancel Client"/>
+                    </toolbar>
+                    <listbox id="listboxClient">
+                        <listhead>
+                            <listheader label="No." align="center"/>
+                            <listheader label="Code" align="center"/>
+                            <listheader label="Name" align="center"/>
+                            <listheader label="Address" align="center"/>
+                            <listheader label="City" align="center"/>
+                            <listheader label="Postcode" align="center"/>
+                            <listheader label="Phone" align="center"/>
+                            <listheader label="Fax" align="center"/>
+                            <listheader label="Email" align="center"/>
+                            <listheader label="Website" align="center"/>
+                        </listhead>
+                    </listbox>
+                                        
+                </tabpanel>
+                
+                <!--Tab Panel Location-->
+                <tabpanel>
+                    <toolbar left="10">
+                        <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddLocation" tooltip="Add Location" tooltiptext="Add Location"/>
+                        <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditLocation" tooltip="Edit Location" tooltiptext="Edit Location"/>
+                        <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteLocation" tooltip="Delete Location" tooltiptext="Delete Location"/>
+                        <toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveLocation" tooltip="Save Location" tooltiptext="Save Location"/>
+                        <toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelLocation" tooltip="Cancel Location" tooltiptext="Cancel Location"/>
+                    </toolbar>
+                    <listbox id="listboxLocation">
+                        <listhead>
+                            <listheader label="Location" align="center"/>
+                            <listheader label="Description" align="center"/>
+                        </listhead>
+                    </listbox>
+                </tabpanel>
+            </tabpanels>
+        </tabbox>        
+    </window>
+</zk>
