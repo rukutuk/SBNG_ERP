@@ -15,25 +15,27 @@ import util.ConnectionUtil;
 
 /* @author Tata */
 public class ShowCustomerController extends GenericForwardComposer {
-	Window  windowShowCustomer;
-	Listbox  listboxCustomer;
-	Toolbarbutton  btnAddCustomer,btnEditCustomer,btnDeleteCustomer;
-	@Override
-	public void doAfterCompose(Component comp) throws Exception {
-		super.doAfterCompose(comp);
+
+    Window windowShowCustomer;
+    Listbox listboxCustomer;
+    Toolbarbutton btnAddCustomer, btnEditCustomer, btnDeleteCustomer;
+
+    @Override
+    public void doAfterCompose(Component comp) throws Exception {
+        super.doAfterCompose(comp);
         prepareList();
     }
-    
+
     private void prepareList() {
         try {
             listboxCustomer.setItemRenderer(new ShowCustomerRenderer());
             listboxCustomer.setModel(new ListModelList(ProjectBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllCustomer(0, IDBConstants.MODUL_MASTER_DATA)));
         } catch (Exception ex) {
+            ex.printStackTrace();
             Logger.getLogger(ShowCustomerDetailController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void onClick$btnAddCustomer() {
-        
     }
 }
