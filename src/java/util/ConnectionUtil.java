@@ -26,7 +26,7 @@ public class ConnectionUtil {
 //	      m_connectmgr = new ConnectionManager("sampurna");
 //	      m_connectmgr = new ConnectionManager("sampurna");
                 Class.forName("com.mysql.jdbc.Driver");
-                m_conn = DriverManager.getConnection("jdbc:mysql://localhost/tisas_db", "root", "");
+                m_conn = DriverManager.getConnection("jdbc:mysql://localhost/tisas_db", "root", "123");
                 System.out.println("bbbbb");
 //	      m_conn = m_connectmgr.getConnection();  
                 System.out.println("ccccc");
