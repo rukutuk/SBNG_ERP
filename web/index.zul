@@ -326,7 +326,7 @@
                                             <treecell label="Master Data" id="PM_010" visible="true"/>
                                         </treerow>
                                         <treechildren>
-                                            <treeitem open="false">
+                                            <treeitem open="true">
                                                 <treerow>
                                                     <treecell label="Customer" id="PM_011" visible="true"/>
                                                 </treerow>
