@@ -28,7 +28,7 @@ public class IndexController extends GenericForwardComposer{
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 //        alert("JREBEL.com");
-        onClick$PM_012();
+        onClick$PM_013();
     }
     
 //    START Project Monitoring
@@ -65,6 +65,24 @@ public class IndexController extends GenericForwardComposer{
 //        }
     }
     
+    public void onClick$PM_012() {
+        try {
+            showPage("/project/masterdata/customer/customergroup/show_customer_group.zul", "PM_012", "Customer Group");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$PM_013() {
+        try {
+            showPage("/project/masterdata/customer/customerdata/show_customer.zul", "PM_013", "Show Customer Data");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    
 //    END Project Monitoring
     
 //    START HR
@@ -88,14 +106,6 @@ public class IndexController extends GenericForwardComposer{
     public void onClick$HR_041() {
         try {
             showPage("/hrm/masterdata/payroll/ptkp/show_ptkp.zul", "HR_006", "PTKP");
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-    }
-    
-    public void onClick$PM_012() {
-        try {
-            showPage("/project/masterdata/customer/customergroup/show_customer_group.zul", "PM_012", "Customer Group");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
