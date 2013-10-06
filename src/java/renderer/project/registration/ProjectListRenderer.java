@@ -23,6 +23,8 @@ public class ProjectListRenderer implements ListitemRenderer{
         
         cell = new Listcell(data.getCustname());
         cell.setParent(lstm);
+        
+        lstm.setAttribute("data", data);
     } 
 
 }
