@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowCustomerGroup" title="" apply="hasil.data.project.masterdata.customer.customergroup.ShowCustomerGroupController">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Show Customer Group"/>
+            <listbox id="listboxCustomerGroup">
+                <listhead>
+                    <listheader label="Group Name" align="center"/>
+                    <listheader label="Description" align="center"/>
+                </listhead>
+            </listbox>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddCustomerGroup" tooltip="Add CustomerGroup" tooltiptext="Add CustomerGroup"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditCustomerGroup" tooltip="Edit CustomerGroup" tooltiptext="Edit CustomerGroup"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteCustomerGroup" tooltip="Delete CustomerGroup" tooltiptext="Delete CustomerGroup"/>
+            </toolbar>
+
+        </groupbox>
+
+        
+    </window>
+</zk>
