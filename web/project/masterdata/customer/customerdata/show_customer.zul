@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowCustomer" title="">
+    <window id="windowShowCustomer" title="" apply="hasil.data.project.masterdata.customer.customerdata.ShowCustomerController">
         <groupbox mold="3d" closable="false" >
             <caption label="  Customer Data"/>
             <listbox id="listboxCustomer">
