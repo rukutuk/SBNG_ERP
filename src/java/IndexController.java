@@ -28,7 +28,7 @@ public class IndexController extends GenericForwardComposer{
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 //        alert("JREBEL.com");
-        onClick$HR_041();
+        onClick$PM_012();
     }
     
 //    START Project Monitoring
@@ -88,6 +88,14 @@ public class IndexController extends GenericForwardComposer{
     public void onClick$HR_041() {
         try {
             showPage("/hrm/masterdata/payroll/ptkp/show_ptkp.zul", "HR_006", "PTKP");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$PM_012() {
+        try {
+            showPage("/project/masterdata/customer/customergroup/show_customer_group.zul", "PM_012", "Customer Group");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
