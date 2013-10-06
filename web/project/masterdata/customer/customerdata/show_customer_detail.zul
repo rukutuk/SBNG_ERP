@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowCustomer" title="Customer Details">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Customer Detail"/>
+            <grid class="custom-grid">
+                <columns>
+                    <column width="120px" align="right" />
+                    <column width="450px" align="left" />
+                    <column width="120px" align="right" />
+                    <column width="100%" align="left" />
+                </columns>
+                <rows>                    
+                    <row>
+                        <label value="Code :"/>
+                        <textbox id="textCode" width="400px"/>
+                        <label value="Name :"/>
+                        <textbox id="textName" width="400px"/>
+                    </row>
+                    <row> 
+                        <label value="City :"/>
+                        <textbox id="textCity" width="400px"/>
+                        <label value="Address :"  />
+                        <textbox id="textAddress" cols="80" rows="6"/>
+                    </row>
+                    <row> 
+                        <label value="Post Code :"/>
+                        <textbox id="textPostCode" width="400px"/>                     
+                        <label value="Province :"/>
+                        <textbox id="textProvince" width="400px"/>
+                    </row>
+                    <row spans="1,3"> 
+                        <label value="Country :"/>
+                        <textbox id="textCountry" width="400px"/>                                               
+                    </row>
+                    <row> 
+                        <label value="Phone 1 :"/>
+                        <textbox id="textPhone1" width="400px"/>
+                        <label value="Phone 2 :"/>
+                        <textbox id="textPhone2" width="400px"/>                     
+                    </row>
+                    <row> 
+                        <label value="Fax 1 :"/>
+                        <textbox id="textFax1" width="400px"/>
+                        <label value="Fax 2 :"/>
+                        <textbox id="textFax2" width="400px"/>                     
+                    </row>
+                    <row>
+                        <label value="Email :"/>
+                        <textbox id="textEmail" width="400px"/>
+                        <label value="Website :"/>
+                        <textbox id="textWebsite" width="400px"/>                     
+                    </row>
+                </rows>
+            </grid>
+
+            <listbox id="listboxCustomer">
+                <listhead>
+                    <listheader label="Customer Code" align="center"/>
+                    <listheader label="Customer Name" align="center"/>
+                </listhead>
+            </listbox>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddCustomer" tooltip="Add Customer" tooltiptext="Add Customer"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditCustomer" tooltip="Edit Customer" tooltiptext="Edit Customer"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteCustomer" tooltip="Delete Customer" tooltiptext="Delete Customer"/>
+            </toolbar>
+
+
+        </groupbox>
+
+        
+    </window>
+</zk>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="windowShowCustomer" title="">
+        <groupbox mold="3d" closable="false" >
+            <caption label="  Customer Data"/>
+            <listbox id="listboxCustomer">
+                <listhead>
+                    <listheader label="Customer Code" align="center"/>
+                    <listheader label="Customer Name" align="center"/>
+                </listhead>
+            </listbox>
+            <toolbar>
+                <toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddCustomer" tooltip="Add Customer" tooltiptext="Add Customer"/>
+                <toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditCustomer" tooltip="Edit Customer" tooltiptext="Edit Customer"/>
+                <toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteCustomer" tooltip="Delete Customer" tooltiptext="Delete Customer"/>
+            </toolbar>
+
+
+        </groupbox>
+
+        
+    </window>
+</zk>
