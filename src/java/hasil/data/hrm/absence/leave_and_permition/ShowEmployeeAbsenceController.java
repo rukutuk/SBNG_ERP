@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hasil.data.hrm.employee.data;
+package hasil.data.hrm.absence.leave_and_permition;
 
+import hasil.data.hrm.employee.data.*;
 import hasil.data.hrm.masterdata.payroll.ptkp.ShowPtkpController;
 import java.util.Map;
 import java.util.logging.Level;
@@ -28,9 +29,9 @@ import util.ConnectionUtil;
  *
  * @author nungky
  */
-public class ShowEmployeeController extends GenericForwardComposer {
+public class ShowEmployeeAbsenceController extends GenericForwardComposer {
     
-    Window windowShowEmployee;
+    Window windowShowEmployeeAbsence;
     Listbox listboxEmployee;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
@@ -45,7 +46,7 @@ public class ShowEmployeeController extends GenericForwardComposer {
          listboxEmployee.setItemRenderer(new ShowEmployeeRenderer());
          listboxEmployee.setModel(new ListModelList(HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllEmployee(0, IDBConstants.ATTR_EMPLOYEE)));
       } catch (Exception ex) {
-         Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(ShowEmployeeAbsenceController.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
 }

@@ -28,7 +28,8 @@ public class IndexController extends GenericForwardComposer{
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 //        alert("JREBEL.com");
-        onClick$HR_003();
+        //onClick$HR_003();
+        onClick$HR_006();
         //onClick$PM_013();
     }
     
@@ -111,7 +112,7 @@ public class IndexController extends GenericForwardComposer{
         }
     }
     
-    public void onClick$HR_006(Event e) {
+    public void onClick$HR_006() {
         try {
             showPage("/hrm/absence/leavepermission/show_leave_permission.zul", "HR_006", "Leave and Permission");
         } catch (InterruptedException ex) {

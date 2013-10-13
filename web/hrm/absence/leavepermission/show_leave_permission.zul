@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowLeavePermission" title="Show Leave Permission">
+    <window id="windowShowLeavePermission" title="Show Leave Permission" apply="hasil.data.hrm.absence.leave_and_permition.ShowEmployeeAbsenceController">
         <listbox id="listboxEmployee">
             <listhead>
                 <listheader label="NIP" align="center"/>
