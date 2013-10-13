@@ -4,6 +4,8 @@
  */
 package renderer.hrm.employee.data;
 
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.ListitemRenderer;
@@ -23,7 +25,12 @@ public class ShowEmployeeRenderer implements ListitemRenderer{
         cell.setParent(lstm);
         
         cell = new Listcell(emp.getFirstName() + " " + " " + emp.getMidleName() + " " + emp.getLastName());
-        cell.setParent(lstm);
+        cell.setParent(lstm);        
+        cell.addEventListener("onClick", new EventListener() {
+            public void onEvent(Event event) {                
+                System.out.println("q===========");               
+            }
+        });        
                 
         lstm.setAttribute("data", emp);
     }
