@@ -29,7 +29,7 @@ public class IndexController extends GenericForwardComposer{
         super.doAfterCompose(comp);
 //        alert("JREBEL.com");
         //onClick$HR_003();
-        onClick$HR_006();
+//        onClick$HR_006();
         //onClick$PM_013();
     }
     
@@ -93,7 +93,15 @@ public class IndexController extends GenericForwardComposer{
     
     public void onClick$PM_016() {
         try {
-            showPage("/project/masterdata/partner/partnergroup/show_partner_data.zul", "PM_016", "Partner Data");
+            showPage("/project/masterdata/partner/partnerdata/show_partner.zul", "PM_016", "Partner Data");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$PM_017() {
+        try {
+            showPage("/project/masterdata/personal/show_personal.zul", "PM_017", "Personal");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
@@ -120,10 +128,58 @@ public class IndexController extends GenericForwardComposer{
         }
     }
     
+    public void onClick$HR_039() {
+        try {
+            showPage("/hrm/masterdata/payroll/fieldallowance/show_field_allowance_multiplier.zul", "HR_039", "Field Allowance Multiplier");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
 //    public void onClick$HR_041(Event e) {
     public void onClick$HR_041() {
         try {
             showPage("/hrm/masterdata/payroll/ptkp/show_ptkp.zul", "HR_006", "PTKP");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$HR_042() {
+        try {
+            showPage("/hrm/masterdata/payroll/taxart21tariff/show_tax_art_21_tariff.zul", "HR_042", "Tax Art 21 Tariff");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$HR_044() {
+        try {
+            showPage("/hrm/masterdata/absence/leavetype/show_leave_type.zul", "HR_044", "Leave Type");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$HR_045() {
+        try {
+            showPage("/hrm/masterdata/absence/permissiontype/show_permission_type.zul", "HR_045", "Permission Type");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$HR_046() {
+        try {
+            showPage("/hrm/masterdata/absence/officehourperm/show_office_hour_permission_type.zul", "HR_046", "Office Hour Permission Type");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$HR_051() {
+        try {
+            showPage("/hrm/setting/overtimemultiplier/show_overtime_multiplier.zul", "HR_051", "Overtime Multiplier");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
