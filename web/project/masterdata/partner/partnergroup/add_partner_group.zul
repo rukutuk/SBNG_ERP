@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowAddPartnerGroup"  apply="controller.project.masterdata.partner.partnergroup.AddPartnerGroupController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Add Partner Group"/>
+			<grid class="custom-grid" width="300px">
+				<columns>
+					<column width="120px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Name  :"/>
+						<textbox id="name" width="100px"/>
+					</row>
+					<row>
+						<label value="Description  :"/>
+						<textbox id="description" width="100px"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSavePartnerGroup" tooltip="Save Partner Group" tooltiptext="Save Partner Group"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelPartnerGroup" tooltip="Cancel Partner Group" tooltiptext="Cancel Partner Group"/>
+		</toolbar>
+	</window>
+</zk>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowAddSpecificAddress"  apply="controller.project.masterdata.partner.partnerdata.specificaddress.AddSpecificAddressController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Add Specific Address"/>
+			<grid class="custom-grid" width="600px">
+				<columns>
+					<column width="120px" align="right" />
+					<column width="400px" align="left" />
+					<column width="120px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="No  :"/>
+						<intbox id="partnerindex" width="100px" />
+						<label value="Type  :"/>
+						<textbox id="addressname" width="100px"/>
+					</row>
+					<row>
+						<label value="Address  :"/>
+						<textbox id="street" width="100px"/>
+						<label value="Phone  :"/>
+						<textbox id="phone1" width="100px"/>
+					</row>
+					<row>
+						<label value="Fax  :"/>
+						<textbox id="fax1" width="100px"/>
+						<label value="City  :"/>
+						<textbox id="city" width="100px"/>
+					</row>
+					<row>
+						<label value="Post Code  :"/>
+						<intbox id="postalcode" width="100px" />
+						<label value="Province  :"/>
+						<textbox id="province" width="100px"/>
+					</row>
+					<row spans="1,3">
+						<label value="Country  :"/>
+						<textbox id="country" width="100px"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveSpecificAddress" tooltip="Save Specific Address" tooltiptext="Save Specific Address"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelSpecificAddress" tooltip="Cancel Specific Address" tooltiptext="Cancel Specific Address"/>
+		</toolbar>
+	</window>
+</zk>

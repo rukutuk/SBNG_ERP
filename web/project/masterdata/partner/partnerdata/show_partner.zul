@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowPartner"  apply="controller.project.masterdata.partner.partnerdata.ShowPartnerController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Partner"/>
+			<listbox id="listboxPartner">
+				<listhead>
+					<listheader label="Code" align="center"/>
+					<listheader label="Name" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPartner" tooltip="Add Partner" tooltiptext="Add Partner"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPartner" tooltip="Edit Partner" tooltiptext="Edit Partner"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePartner" tooltip="Delete Partner" tooltiptext="Delete Partner"/>
+		</toolbar>
+	</window>
+</zk>

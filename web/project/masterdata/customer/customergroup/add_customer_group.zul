@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowAddCustomerGroup" title="Add Customer Group" width="600px" apply="hasil.data.project.masterdata.customer.customergroup.AddCustomerGroupController">
+    <window id="windowAddCustomerGroup" title="Add Customer Group" width="600px" apply="controller.project.masterdata.customer.customergroup.AddCustomerGroupController">
         <grid class="custom-grid" width="600px">
             <columns>
                 <column width="120px" align="right" />

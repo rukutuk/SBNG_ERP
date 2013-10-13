@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowSpecificAddress"  apply="controller.project.masterdata.partner.partnerdata.specificaddress.ShowSpecificAddressController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Specific Address"/>
+			<listbox id="listboxSpecificAddress">
+				<listhead>
+					<listheader label="No" align="center"/>
+					<listheader label="Type" align="center"/>
+					<listheader label="Address" align="center"/>
+					<listheader label="Phone" align="center"/>
+					<listheader label="Fax" align="center"/>
+					<listheader label="City" align="center"/>
+					<listheader label="Post Code" align="center"/>
+					<listheader label="Province" align="center"/>
+					<listheader label="Country" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddSpecificAddress" tooltip="Add Specific Address" tooltiptext="Add Specific Address"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditSpecificAddress" tooltip="Edit Specific Address" tooltiptext="Edit Specific Address"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteSpecificAddress" tooltip="Delete Specific Address" tooltiptext="Delete Specific Address"/>
+		</toolbar>
+	</window>
+</zk>

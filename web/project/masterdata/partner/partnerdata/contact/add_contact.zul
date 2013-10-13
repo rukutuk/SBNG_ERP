@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowAddContact"  apply="controller.project.masterdata.partner.partnerdata.contact.AddContactController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Add Contact"/>
+			<grid class="custom-grid" width="600px">
+				<columns>
+					<column width="120px" align="right" />
+					<column width="200px" align="left" />
+					<column width="120px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="No  :"/>
+						<intbox id="personalindex" width="100px" />
+						<label value="Code  :"/>
+						<textbox id="code" width="100px"/>
+					</row>
+					<row>
+						<label value="Name  :"/>
+						<textbox id="firstname" width="100px"/>
+						<label value="Address  :"/>
+						<textbox id="street" width="100px"/>
+					</row>
+					<row>
+						<label value="City  :"/>
+						<textbox id="city" width="100px"/>
+						<label value="Post Code  :"/>
+						<intbox id="postalcode" width="100px" />
+					</row>
+					<row>
+						<label value="Phone  :"/>
+						<textbox id="phone1" width="100px"/>
+						<label value="Fax  :"/>
+						<textbox id="fax1" width="100px"/>
+					</row>
+					<row>
+						<label value="Email  :"/>
+						<textbox id="email" width="100px"/>
+						<label value="Website  :"/>
+						<textbox id="website" width="100px"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveContact" tooltip="Save Contact" tooltiptext="Save Contact"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelContact" tooltip="Cancel Contact" tooltiptext="Cancel Contact"/>
+		</toolbar>
+	</window>
+</zk>

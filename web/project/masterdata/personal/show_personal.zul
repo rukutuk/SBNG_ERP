@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowPersonal"  apply="controller.project.masterdata.personal.ShowPersonalController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Personal"/>
+			<listbox id="listboxPersonal">
+				<listhead>
+					<listheader label="Code" align="center"/>
+					<listheader label="Title" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPersonal" tooltip="Add Personal" tooltiptext="Add Personal"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPersonal" tooltip="Edit Personal" tooltiptext="Edit Personal"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePersonal" tooltip="Delete Personal" tooltiptext="Delete Personal"/>
+		</toolbar>
+	</window>
+</zk>

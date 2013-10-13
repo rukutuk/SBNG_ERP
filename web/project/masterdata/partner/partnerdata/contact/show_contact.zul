@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowContact"  apply="controller.project.masterdata.partner.partnerdata.contact.ShowContactController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Contact"/>
+			<listbox id="listboxContact">
+				<listhead>
+					<listheader label="No" align="center"/>
+					<listheader label="Code" align="center"/>
+					<listheader label="Name" align="center"/>
+					<listheader label="Address" align="center"/>
+					<listheader label="City" align="center"/>
+					<listheader label="Post Code" align="center"/>
+					<listheader label="Phone" align="center"/>
+					<listheader label="Fax" align="center"/>
+					<listheader label="Email" align="center"/>
+					<listheader label="Website" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddContact" tooltip="Add Contact" tooltiptext="Add Contact"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteContact" tooltip="Delete Contact" tooltiptext="Delete Contact"/>
+		</toolbar>
+	</window>
+</zk>
