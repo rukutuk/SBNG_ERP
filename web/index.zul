@@ -326,7 +326,7 @@
                                             <treecell label="Master Data" id="PM_010" visible="true"/>
                                         </treerow>
                                         <treechildren>
-                                            <treeitem open="true">
+                                            <treeitem open="false">
                                                 <treerow>
                                                     <treecell label="Customer" id="PM_011" visible="true"/>
                                                 </treerow>
@@ -335,7 +335,7 @@
                                                     <treeitem label="Customer Data" id="PM_013" visible="true"/>
                                                 </treechildren>
                                             </treeitem>
-                                            <treeitem open="true">
+                                            <treeitem open="false">
                                                 <treerow>
                                                     <treecell label="Partner" id="PM_014" visible="true"/>
                                                 </treerow>
@@ -350,7 +350,7 @@
                                     </treeitem>
                                     <treeitem open="false">
                                         <treerow>
-                                            <treecell label="Report" id="PM_018" visible="true"/>
+                                            <treecell label="Report" id="PM_019" visible="true"/>
                                         </treerow>
                                         <treechildren>
                                             <treeitem label="Project Profitability" id="PM_020" visible="true"/>
