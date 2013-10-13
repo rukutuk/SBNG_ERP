@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowOfficeHourPermissionType"  apply="controller.hrm.masterdata.absence.officehourperm.ShowOfficeHourPermissionTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Office Hour Permission Type"/>
+			<listbox id="listboxOfficeHourPermissionType">
+				<listhead>
+					<listheader label="Code" align="center"/>
+					<listheader label="Description" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddOfficeHourPermissionType" tooltip="Add Office Hour Permission Type" tooltiptext="Add Office Hour Permission Type"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditOfficeHourPermissionType" tooltip="Edit Office Hour Permission Type" tooltiptext="Edit Office Hour Permission Type"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteOfficeHourPermissionType" tooltip="Delete Office Hour Permission Type" tooltiptext="Delete Office Hour Permission Type"/>
+		</toolbar>
+	</window>
+</zk>

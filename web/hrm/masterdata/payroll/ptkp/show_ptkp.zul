@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowPtkp" title="Add PTKP" apply="hasil.data.hrm.masterdata.payroll.ptkp.ShowPtkpController">
+    <window id="windowShowPtkp" title="Add PTKP" apply="controller.hrm.masterdata.payroll.ptkp.ShowPtkpController">
         <groupbox mold="3d" closable="false" >
             <caption label="  PTKP"/>
             <listbox id="listboxPtkp">

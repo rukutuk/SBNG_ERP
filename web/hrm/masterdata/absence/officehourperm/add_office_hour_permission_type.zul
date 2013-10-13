@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowAddOfficeHourPermissionType"  apply="controller.hrm.masterdata.absence.officehourperm.AddOfficeHourPermissionTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Add Office Hour Permission Type"/>
+			<grid class="custom-grid" width="600px">
+				<columns>
+					<column width="120px" align="right" />
+					<column width="200px" align="left" />
+					<column width="120px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Code  :"/>
+						<textbox id="code" width="100px"/>
+						<label value="Description  :"/>
+						<textbox id="description" width="100px"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveOfficeHourPermissionType" tooltip="Save Office Hour Permission Type" tooltiptext="Save Office Hour Permission Type"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelOfficeHourPermissionType" tooltip="Cancel Office Hour Permission Type" tooltiptext="Cancel Office Hour Permission Type"/>
+		</toolbar>
+	</window>
+</zk>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowAddPTKP" title="Add PTKP" width="600px" apply="hasil.data.hrm.masterdata.payroll.ptkp.AddPtkpController">
+    <window id="windowAddPTKP" title="Add PTKP" width="600px" apply="controller.hrm.masterdata.payroll.ptkp.AddPtkpController">
         <grid class="custom-grid" width="600px">
             <columns>
                 <column width="120px" align="right" />
@@ -12,6 +12,8 @@
                     <label value="Name :"/>
                     <textbox id="textName" width="400px"/>
                 </row>
+                <label value="id :"/>
+                <datebox id="dateid" width="100px" format="dd-MM-yyyy"/>
                 <row> 
                     <label value="Description :"  />
                     <textbox id="textDescription" cols="80" rows="6"/>                         

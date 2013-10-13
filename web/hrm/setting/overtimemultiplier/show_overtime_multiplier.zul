@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowOvertimeMultiplier"  apply="controller.hrm.setting.overtimemultiplier.ShowOvertimeMultiplierController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Overtime Multiplier"/>
+			<listbox id="listboxOvertimeMultiplier">
+				<listhead>
+					<listheader label="Day Status" align="center"/>
+					<listheader label="Hour Min" align="center"/>
+					<listheader label="Hour Max" align="center"/>
+					<listheader label="Multiplier" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddOvertimeMultiplier" tooltip="Add Overtime Multiplier" tooltiptext="Add Overtime Multiplier"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditOvertimeMultiplier" tooltip="Edit Overtime Multiplier" tooltiptext="Edit Overtime Multiplier"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteOvertimeMultiplier" tooltip="Delete Overtime Multiplier" tooltiptext="Delete Overtime Multiplier"/>
+		</toolbar>
+	</window>
+</zk>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowLeaveType"  apply="controller.hrm.masterdata.absence.leavetype.ShowLeaveTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Leave Type"/>
+			<listbox id="listboxLeaveType">
+				<listhead>
+					<listheader label="Code" align="center"/>
+					<listheader label="Description" align="center"/>
+					<listheader label="Annual Leave Deduction" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddLeaveType" tooltip="Add Leave Type" tooltiptext="Add Leave Type"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditLeaveType" tooltip="Edit Leave Type" tooltiptext="Edit Leave Type"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteLeaveType" tooltip="Delete Leave Type" tooltiptext="Delete Leave Type"/>
+		</toolbar>
+	</window>
+</zk>

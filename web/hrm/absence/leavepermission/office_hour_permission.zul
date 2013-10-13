@@ -14,9 +14,9 @@
                 <rows>
                     <row>
                         <label value="Proposed Date :"/>
-                        <datebox id="dateProposed Date" width="100px" format="dd-MM-yyyy"/>
+                        <datebox id="dateProposedDate" width="100px" format="dd-MM-yyyy"/>
                         <label value="Permission Date :"/>
-                        <datebox id="datePermission Date" width="100px" format="dd-MM-yyyy"/>
+                        <datebox id="datePermissionDate" width="100px" format="dd-MM-yyyy"/>
                     </row>
                     <row>
                         <label value="From :"/>

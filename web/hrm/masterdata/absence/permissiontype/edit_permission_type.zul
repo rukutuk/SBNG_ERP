@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowEditPermissionType"  apply="controller.hrm.masterdata.absence.permissiontype.EditPermissionTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Edit Permission Type"/>
+			<grid class="custom-grid" width="600px">
+				<columns>
+					<column width="120px" align="right" />
+					<column width="150px" align="left" />
+					<column width="170px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Code  :"/>
+						<textbox id="code" width="100px"/>
+						<label value="Description  :"/>
+						<textbox id="description" width="100px"/>
+					</row>
+					<row>
+						<label value="Days  :"/>
+						<intbox id="days" width="100px" />
+						<label value="Annual Leave Deduction  :"/>
+						<intbox id="deduction" width="100px" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSavePermissionType" tooltip="Save Permission Type" tooltiptext="Save Permission Type"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelPermissionType" tooltip="Cancel Permission Type" tooltiptext="Cancel Permission Type"/>
+		</toolbar>
+	</window>
+</zk>

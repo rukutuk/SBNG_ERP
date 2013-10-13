@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowPermissionType"  apply="controller.hrm.masterdata.absence.permissiontype.ShowPermissionTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Permission Type"/>
+			<listbox id="listboxPermissionType">
+				<listhead>
+					<listheader label="Code" align="center"/>
+					<listheader label="Description" align="center"/>
+					<listheader label="Days" align="center"/>
+					<listheader label="Annual Leave Deduction" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddPermissionType" tooltip="Add Permission Type" tooltiptext="Add Permission Type"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditPermissionType" tooltip="Edit Permission Type" tooltiptext="Edit Permission Type"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeletePermissionType" tooltip="Delete Permission Type" tooltiptext="Delete Permission Type"/>
+		</toolbar>
+	</window>
+</zk>

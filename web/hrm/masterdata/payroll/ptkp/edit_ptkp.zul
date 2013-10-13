@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowEditPTKP" title="Edit PTKP" width="600px" apply="hasil.data.hrm.masterdata.payroll.ptkp.EditPtkpController">
+    <window id="windowEditPTKP" title="Edit PTKP" width="600px" apply="controller.hrm.masterdata.payroll.ptkp.EditPtkpController">
         <grid class="custom-grid" width="600px">                                               
             <columns>
                 <column width="120px" align="right" />

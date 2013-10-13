@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowTaxArt21Tariff"  apply="controller.hrm.masterdata.payroll.taxart21tariff.ShowTaxArt21TariffController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Tax Art 21 Tariff"/>
+			<listbox id="listboxTaxArt21Tariff">
+				<listhead>
+					<listheader label="Minimum" align="center"/>
+					<listheader label="Maximum" align="center"/>
+					<listheader label="Tariff" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddTaxArt21Tariff" tooltip="Add Tax Art 21 Tariff" tooltiptext="Add Tax Art 21 Tariff"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditTaxArt21Tariff" tooltip="Edit Tax Art 21 Tariff" tooltiptext="Edit Tax Art 21 Tariff"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteTaxArt21Tariff" tooltip="Delete Tax Art 21 Tariff" tooltiptext="Delete Tax Art 21 Tariff"/>
+		</toolbar>
+	</window>
+</zk>

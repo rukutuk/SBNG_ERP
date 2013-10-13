@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowShowFieldAllowanceMultiplier"  apply="controller.hrm.masterdata.payroll.fieldallowance.ShowFieldAllowanceMultiplierController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Show Field Allowance Multiplier"/>
+			<listbox id="listboxFieldAllowanceMultiplier">
+				<listhead>
+					<listheader label="Area Code" align="center"/>
+					<listheader label="Description" align="center"/>
+					<listheader label="Multiplier" align="center"/>
+				</listhead>
+			</listbox>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_new2_16x16.gif" id="btnAddFieldAllowanceMultiplier" tooltip="Add Field Allowance Multiplier" tooltiptext="Add Field Allowance Multiplier"/>
+			<toolbarbutton image="/icons/btn_edit1_16x16.gif" id="btnEditFieldAllowanceMultiplier" tooltip="Edit Field Allowance Multiplier" tooltiptext="Edit Field Allowance Multiplier"/>
+			<toolbarbutton image="/icons/btn_delete2_16x16.gif" id="btnDeleteFieldAllowanceMultiplier" tooltip="Delete Field Allowance Multiplier" tooltiptext="Delete Field Allowance Multiplier"/>
+		</toolbar>
+	</window>
+</zk>

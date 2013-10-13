@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window id="windowAddLeaveType"  apply="controller.hrm.masterdata.absence.leavetype.AddLeaveTypeController">
+		<groupbox mold="3d" closable="false" >
+			<caption label="  Add Leave Type"/>
+			<grid class="custom-grid" width="600px">
+				<columns>
+					<column width="170px" align="right" />
+					<column width="150px" align="left" />
+					<column width="120px" align="right" />
+					<column width="100%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Code  :"/>
+						<textbox id="code" width="100px"/>
+						<label value="Description  :"/>
+						<textbox id="description" width="100px"/>
+					</row>
+					<row spans="1,3">
+						<label value="Annual Leave Deduction  :"/>
+						<intbox id="deduction" width="100px" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<toolbar>
+			<toolbarbutton image="/icons/btn_save2_16x16.gif" id="btnSaveLeaveType" tooltip="Save Leave Type" tooltiptext="Save Leave Type"/>
+			<toolbarbutton image="/icons/btn_cancel2_16x16.gif" id="btnCancelLeaveType" tooltip="Cancel Leave Type" tooltiptext="Cancel Leave Type"/>
+		</toolbar>
+	</window>
+</zk>
