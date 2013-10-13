@@ -82,6 +82,22 @@ public class IndexController extends GenericForwardComposer{
         }
     }
     
+    public void onClick$PM_015() {
+        try {
+            showPage("/project/masterdata/partner/partnergroup/show_partner_group.zul", "PM_015", "Partner Group");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void onClick$PM_016() {
+        try {
+            showPage("/project/masterdata/partner/partnergroup/show_partner_data.zul", "PM_016", "Partner Data");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     
     
 //    END Project Monitoring
