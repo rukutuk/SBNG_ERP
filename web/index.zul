@@ -331,23 +331,32 @@
                                                     <treecell label="Customer" id="PM_011" visible="true"/>
                                                 </treerow>
                                                 <treechildren>
-                                                    <treeitem label="Customer Group" id="PM_012" visible="true" image="/images/icon/kain.ico"/>
-                                                    <treeitem label="Customer Data" id="PM_013" visible="true" image="/images/icon/kain.ico"/>
+                                                    <treeitem label="Customer Group" id="PM_012" visible="true"/>
+                                                    <treeitem label="Customer Data" id="PM_013" visible="true"/>
                                                 </treechildren>
                                             </treeitem>
-                                            <treeitem label="Personel" id="PM_014" visible="true" image="/images/icon/kain.ico"/>
-                                            <treeitem label="Activity" id="PM_015" visible="true" image="/images/icon/kain.ico"/>
+                                            <treeitem open="true">
+                                                <treerow>
+                                                    <treecell label="Partner" id="PM_014" visible="true"/>
+                                                </treerow>
+                                                <treechildren>
+                                                    <treeitem label="Partner Group" id="PM_015" visible="true"/>
+                                                    <treeitem label="Partner Data" id="PM_016" visible="true"/>
+                                                </treechildren>
+                                            </treeitem>
+                                            <treeitem label="Personel" id="PM_017" visible="true"/>
+                                            <treeitem label="Activity" id="PM_018" visible="true"/>
                                         </treechildren>
                                     </treeitem>
                                     <treeitem open="false">
                                         <treerow>
-                                            <treecell label="Report" id="PM_016" visible="true"/>
+                                            <treecell label="Report" id="PM_018" visible="true"/>
                                         </treerow>
                                         <treechildren>
-                                            <treeitem label="Project Profitability" id="PM_017" visible="true" image="/images/icon/kain.ico"/>
-                                            <treeitem label="Project Cost" id="PM_018" visible="true"/>
-                                            <treeitem label="Field Allowances" id="PM_019" visible="true" tooltiptext="POK : PO" image="/images/icon/pembelian2.ico"/>
-                                            <treeitem label="Personal Utilization" id="PM_020" visible="true" tooltiptext="POK : PO => DITERIMA" image="/images/icon/penerimaan3.ico"/>
+                                            <treeitem label="Project Profitability" id="PM_020" visible="true"/>
+                                            <treeitem label="Project Cost" id="PM_021" visible="true"/>
+                                            <treeitem label="Field Allowances" id="PM_022" visible="true"/>
+                                            <treeitem label="Personal Utilization" id="PM_023" visible="true"/>
                                         </treechildren>
                                     </treeitem>
                                 </treechildren>
