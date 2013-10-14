@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowRetirement" title="">
+    <window id="windowShowRetirement" title="" apply="hasil.data.hrm.employee.data.ShowRetirementController">
         <grid class="custom-grid">                                               
             <columns>
                 <column width="120px" align="right" />

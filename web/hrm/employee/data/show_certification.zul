@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowCert" title="">
+    <window id="windowShowCert" title="" apply="hasil.data.hrm.employee.data.ShowCertifiedController">
         <groupbox mold="3d" closable="false" >
-            <caption label="  Certification"/>
+            <caption label="Certification"/>
             <listbox id="listboxShowCertification">
                 <listhead>
                     <listheader label="Certificate No." align="center"/>
