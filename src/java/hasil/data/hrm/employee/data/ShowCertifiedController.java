@@ -12,10 +12,12 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
+import pohaci.gumunda.titis.hrm.cgui.Certification;
 import pohaci.gumunda.titis.hrm.cgui.Employee;
 import pohaci.gumunda.titis.hrm.cgui.EmployeeEducation;
 import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import renderer.hrm.employee.data.ShowCertifiedRenderer;
 import renderer.hrm.employee.data.ShowEducationRenderer;
 import util.ConnectionUtil;
 
@@ -23,11 +25,11 @@ import util.ConnectionUtil;
  *
  * @author nungky
  */
-public class ShowEducationController extends GenericForwardComposer {
+public class ShowCertifiedController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
-    Listbox listboxShowEducation;
-    Textbox textMajorStudy;
+    Listbox listboxShowCertification;
+    Textbox textCertificateNo;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -41,23 +43,19 @@ public class ShowEducationController extends GenericForwardComposer {
     }
     
     private void setEmployeeEducation(long index) throws Exception{
-      EmployeeEducation[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeEducation(0, IDBConstants.ATTR_EMPLOYEE,index);
-      if (emp !=null){
-        try {
-          listboxShowEducation.setItemRenderer(new ShowEducationRenderer());
-          listboxShowEducation.setModel(new ListModelList(emp));          
-          setEducation(emp[0]);
-        } catch (Exception ex) {
-           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      Certification[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeCertification(0, IDBConstants.ATTR_EMPLOYEE,index);
+//      if (emp !=null){
+//        try {
+          listboxShowCertification.setItemRenderer(new ShowCertifiedRenderer());
+          listboxShowCertification.setModel(new ListModelList(emp));          
+          textCertificateNo.setValue("aa");
+          //setEducation(emp[0]);
+//        } catch (Exception ex) {
+//           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        }     
-    }
+//    }
     
-    private void setEducation(EmployeeEducation edu) throws Exception
-    {
-        textMajorStudy.setValue(edu.getMajorStudy());
-        //if (emp.getGrade()!=null)
-            
-    }
+    
         
 }

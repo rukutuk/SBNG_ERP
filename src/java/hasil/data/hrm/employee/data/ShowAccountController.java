@@ -5,29 +5,27 @@
 package hasil.data.hrm.employee.data;
 
 import java.sql.Connection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import pohaci.gumunda.titis.hrm.cgui.Employee;
-import pohaci.gumunda.titis.hrm.cgui.EmployeeEducation;
+import pohaci.gumunda.titis.hrm.cgui.EmployeeAccount;
 import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
-import renderer.hrm.employee.data.ShowEducationRenderer;
+import renderer.hrm.employee.data.ShowAccountRenderer;
 import util.ConnectionUtil;
 
 /**
  *
  * @author nungky
  */
-public class ShowEducationController extends GenericForwardComposer {
+public class ShowAccountController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
-    Listbox listboxShowEducation;
-    Textbox textMajorStudy;
+    Listbox listboxShowAccount;
+    Textbox textAccountName;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -41,23 +39,19 @@ public class ShowEducationController extends GenericForwardComposer {
     }
     
     private void setEmployeeEducation(long index) throws Exception{
-      EmployeeEducation[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeEducation(0, IDBConstants.ATTR_EMPLOYEE,index);
-      if (emp !=null){
-        try {
-          listboxShowEducation.setItemRenderer(new ShowEducationRenderer());
-          listboxShowEducation.setModel(new ListModelList(emp));          
-          setEducation(emp[0]);
-        } catch (Exception ex) {
-           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      EmployeeAccount[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeAccount(0, IDBConstants.ATTR_EMPLOYEE,index);
+//      if (emp !=null){
+//        try {
+          listboxShowAccount.setItemRenderer(new ShowAccountRenderer());
+          listboxShowAccount.setModel(new ListModelList(emp));          
+          textAccountName.setValue("aa");
+          //setEducation(emp[0]);
+//        } catch (Exception ex) {
+//           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        }     
-    }
+//    }
     
-    private void setEducation(EmployeeEducation edu) throws Exception
-    {
-        textMajorStudy.setValue(edu.getMajorStudy());
-        //if (emp.getGrade()!=null)
-            
-    }
+    
         
 }
