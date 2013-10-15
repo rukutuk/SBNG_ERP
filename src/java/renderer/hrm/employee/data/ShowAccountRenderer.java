@@ -18,7 +18,7 @@ public class ShowAccountRenderer implements ListitemRenderer{
     public void render(Listitem lstm, Object o) throws Exception {
         EmployeeAccount emp = (EmployeeAccount) o;
         //if (emp.getCertificate()!=null){
-            Listcell cell = new Listcell("ase");
+            Listcell cell = new Listcell(emp.getAccountName());
             cell.setParent(lstm);        
         //if (emp.getCertificate()!=null){
             cell = new Listcell("ase");

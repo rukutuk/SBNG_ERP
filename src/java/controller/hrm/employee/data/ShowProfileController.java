@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hasil.data.hrm.employee.data;
+package controller.hrm.employee.data;
 
 import java.sql.Connection;
 import java.util.logging.Level;

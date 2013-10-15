@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hasil.data.hrm.employee.data;
+package controller.hrm.employee.data;
 
 import java.sql.Connection;
 import java.util.logging.Level;
@@ -12,24 +12,22 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
-import pohaci.gumunda.titis.hrm.cgui.Certification;
 import pohaci.gumunda.titis.hrm.cgui.Employee;
-import pohaci.gumunda.titis.hrm.cgui.EmployeeEducation;
+import pohaci.gumunda.titis.hrm.cgui.EmployeeAccount;
 import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
-import renderer.hrm.employee.data.ShowCertifiedRenderer;
-import renderer.hrm.employee.data.ShowEducationRenderer;
+import renderer.hrm.employee.data.ShowAccountRenderer;
 import util.ConnectionUtil;
 
 /**
  *
  * @author nungky
  */
-public class ShowCertifiedController extends GenericForwardComposer {
+public class ShowAccountController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
-    Listbox listboxShowCertification;
-    Textbox textCertificateNo;
+    Listbox listboxShowAccount;
+    Textbox textAccountName;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -43,18 +41,23 @@ public class ShowCertifiedController extends GenericForwardComposer {
     }
     
     private void setEmployeeEducation(long index) throws Exception{
-      Certification[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeCertification(0, IDBConstants.ATTR_EMPLOYEE,index);
-//      if (emp !=null){
-//        try {
-          listboxShowCertification.setItemRenderer(new ShowCertifiedRenderer());
-          listboxShowCertification.setModel(new ListModelList(emp));          
-          textCertificateNo.setValue("aa");
-          //setEducation(emp[0]);
-//        } catch (Exception ex) {
-//           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+      EmployeeAccount[] emp = HRMBusinessLogic.getInstance(m_conn).getEmployeeAccount(0, IDBConstants.ATTR_EMPLOYEE,index);
+      if (emp !=null){
+        try {
+          listboxShowAccount.setItemRenderer(new ShowAccountRenderer());
+          listboxShowAccount.setModel(new ListModelList(emp));
+          setAccount(emp[0]);
+        } catch (Exception ex) {
+           Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
        }     
-//    }
+    }
+    
+    private void setAccount(EmployeeAccount emp) throws Exception
+    {
+        textAccountName.setValue(emp.getAccountName());
+    }
+    
     
     
         

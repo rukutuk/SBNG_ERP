@@ -19,7 +19,7 @@ public class ShowCertifiedRenderer implements ListitemRenderer{
     public void render(Listitem lstm, Object o) throws Exception {
         Certification emp = (Certification) o;
         //if (emp.getCertificate()!=null){
-            Listcell cell = new Listcell("asep");
+            Listcell cell = new Listcell(emp.getNo());
             cell.setParent(lstm);        
         //}                
         lstm.setAttribute("data", emp);

@@ -4,7 +4,6 @@
  */
 package hasil.data.hrm.absence.leave_and_permition;
 
-import hasil.data.hrm.employee.data.*;
 import hasil.data.hrm.masterdata.payroll.ptkp.ShowPtkpController;
 import java.util.Map;
 import java.util.logging.Level;
