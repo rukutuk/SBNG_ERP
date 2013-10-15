@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowProfile" apply="hasil.data.hrm.employee.data.ShowProfileController">
+    <window id="windowShowProfile" apply="controller.hrm.employee.data.ShowProfileController">
         <groupbox mold="3d" closable="false" >
             <caption label="  Profile"/>
             

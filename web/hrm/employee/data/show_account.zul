@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowAccount" title="" apply="hasil.data.hrm.employee.data.ShowAccountController">
+    <window id="windowShowAccount" title="" apply="controller.hrm.employee.data.ShowAccountController">
         <groupbox mold="3d" closable="false" >
             <caption label="  Account"/>
             <listbox id="listboxShowAccount">

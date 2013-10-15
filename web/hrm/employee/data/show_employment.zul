@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowEmployment" title="" apply="hasil.data.hrm.employee.data.ShowEmployementController">
+    <window id="windowShowEmployment" title="" apply="controller.hrm.employee.data.ShowEmployementController">
         <groupbox mold="3d" closable="false" >
             <caption label="  Employment"/>
             <listbox id="listboxEmployment">

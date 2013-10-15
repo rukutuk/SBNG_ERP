@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-    <window id="windowShowCert" title="" apply="hasil.data.hrm.employee.data.ShowCertifiedController">
+    <window id="windowShowCert" title="" apply="controller.hrm.employee.data.ShowCertifiedController">
         <groupbox mold="3d" closable="false" >
             <caption label="Certification"/>
             <listbox id="listboxShowCertification">
