@@ -8,6 +8,10 @@ import org.zkoss.zul.Window;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.PermitionType;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class EditPermissionTypeController extends GenericForwardComposer {
@@ -17,7 +21,8 @@ public class EditPermissionTypeController extends GenericForwardComposer {
 	Toolbarbutton  btnSavePermissionType,btnCancelPermissionType;
 
 	ShowPermissionTypeController parent;
-	// PermissionType permissionType = null;
+	PermitionType permissionType = null;
+        long idx = 0;
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
@@ -25,8 +30,14 @@ public class EditPermissionTypeController extends GenericForwardComposer {
 
 		Map map = Executions.getCurrent().getArg();
 		parent = (ShowPermissionTypeController) map.get("parent");
-		// permissionType = (PermissionType) map.get("obj");
+		permissionType = (PermitionType) map.get("obj");
 		windowEditPermissionType.doModal();
+                idx = permissionType.getIndex();
+        
+                code.setValue(permissionType.getCode());
+                description.setValue(permissionType.getDescription());
+                //deduction.setValue(permissionType.getDeduction());
+                days.setValue(permissionType.getDays());
 	}
 
 	public void onClick$btnCancelPermissionType() {
@@ -40,12 +51,8 @@ public class EditPermissionTypeController extends GenericForwardComposer {
 	public void onClick$btnSavePermissionType() {
 		try
 		{
-			// PermissionType permissionType = new PermissionType();
-			// permissionType.setCode(code.getValue());
-			// permissionType.setDays(days.getValue());
-			// permissionType.setDeduction(deduction.getValue());
-			// permissionType.setDescription(description.getValue());
-			// NUNUNG
+			PermitionType permitionType = new PermitionType(idx, code.getValue(), description.getValue(), days.getValue(),true);
+                        HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).updatePermitionType(0, IDBConstants.MODUL_MASTER_DATA, idx,  permitionType);
 			parent.prepareList();
 			closeWindow();
 		} catch (Exception ex) {

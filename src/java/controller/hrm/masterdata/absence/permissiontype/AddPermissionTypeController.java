@@ -8,6 +8,10 @@ import org.zkoss.zul.Window;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.PermitionType;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class AddPermissionTypeController extends GenericForwardComposer {
@@ -38,13 +42,9 @@ public class AddPermissionTypeController extends GenericForwardComposer {
 	public void onClick$btnSavePermissionType() {
 		try
 		{
-			// PermissionType permissionType = new PermissionType();
-			// permissionType.setCode(code.getValue());
-			// permissionType.setDays(days.getValue());
-			// permissionType.setDeduction(deduction.getValue());
-			// permissionType.setDescription(description.getValue());
-			// NUNUNG
-			parent.prepareList();
+                   PermitionType permitionType = new PermitionType(code.getValue(), description.getValue(), days.getValue(),true);
+                   HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createPermitionType(0, IDBConstants.MODUL_MASTER_DATA,  permitionType);
+                    parent.prepareList();
 			closeWindow();
 		} catch (Exception ex) {
 			ex.printStackTrace();

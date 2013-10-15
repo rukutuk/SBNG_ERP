@@ -31,16 +31,12 @@ public class EditPtkpController extends GenericForwardComposer {
         super.doAfterCompose(comp);
         Map map = Executions.getCurrent().getArg();
         parent = (ShowPtkpController) map.get("parent");
-//        idx = (Long) map.get("obj");
         ptkp = (PTKP) map.get("obj");
         idx = ptkp.getIndex();
         
         textName.setValue(ptkp.getName());
         textDescription.setValue(ptkp.getDescription());
         bdValueYearly.setValue(ptkp.getValue());
-        
-        
-        
         windowEditPTKP.doModal();
     }
 

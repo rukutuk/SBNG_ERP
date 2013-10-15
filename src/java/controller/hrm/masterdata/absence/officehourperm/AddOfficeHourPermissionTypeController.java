@@ -7,6 +7,10 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.OfficeHourPermition;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class AddOfficeHourPermissionTypeController extends GenericForwardComposer {
@@ -36,10 +40,8 @@ public class AddOfficeHourPermissionTypeController extends GenericForwardCompose
 	public void onClick$btnSaveOfficeHourPermissionType() {
 		try
 		{
-			// OfficeHourPermissionType officeHourPermissionType = new OfficeHourPermissionType();
-			// officeHourPermissionType.setCode(code.getValue());
-			// officeHourPermissionType.setDescription(description.getValue());
-			// NUNUNG
+			OfficeHourPermition officeHourPermition = new OfficeHourPermition(code.getValue(), description.getValue());
+                        HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createOfficeHourPermition(0, IDBConstants.MODUL_MASTER_DATA,  officeHourPermition);
 			parent.prepareList();
 			closeWindow();
 		} catch (Exception ex) {

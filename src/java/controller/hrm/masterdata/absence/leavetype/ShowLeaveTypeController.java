@@ -67,6 +67,186 @@ import util.ConnectionUtil;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.PTKP;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.LeaveType;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.PTKP;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
 
 /* @author Tata */
 public class ShowLeaveTypeController extends GenericForwardComposer {
@@ -78,7 +258,6 @@ public class ShowLeaveTypeController extends GenericForwardComposer {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-
 		prepareList();
 	}
 
@@ -86,7 +265,6 @@ public class ShowLeaveTypeController extends GenericForwardComposer {
 		try {
                     listboxLeaveType.setItemRenderer(new ShowLeaveTypeRenderer());
                     listboxLeaveType.setModel(new ListModelList(HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllLeaveType(0, IDBConstants.MODUL_MASTER_DATA)));
-                    //ZKUtil.renderListbox(listboxLeaveType, NUNUNG , new ShowLeaveTypeRenderer());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -103,8 +281,7 @@ public class ShowLeaveTypeController extends GenericForwardComposer {
 		{
 			Map map = new HashMap();
 			map.put("parent", this);
-			// NUNUNG
-			// map.put("obj", ((LeaveType)listboxLeaveType.getSelectedItem().getAttribute("data")));
+                        map.put("obj", ((LeaveType)listboxLeaveType.getSelectedItem().getAttribute("data")));
 			Executions.createComponents("/hrm/masterdata/absence/leavetype/edit_leave_type.zul", null, map);
 		}
 	}
@@ -112,10 +289,9 @@ public class ShowLeaveTypeController extends GenericForwardComposer {
 	public void onClick$btnDeleteLeaveType() {
 		if (listboxLeaveType.getSelectedItem() != null)
 		{
-			// NUNUNG
-			// LeaveType leaveType = (LeaveType)listboxLeaveType.getSelectedItem().getAttribute("data");
+			LeaveType leaveType = (LeaveType)listboxLeaveType.getSelectedItem().getAttribute("data");
 			try {
-				// NUNUNG
+				HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).deleteLeaveType(0, IDBConstants.MODUL_MASTER_DATA, leaveType.getIndex());
 				prepareList();
 			} catch (Exception ex) {
 				ex.printStackTrace();

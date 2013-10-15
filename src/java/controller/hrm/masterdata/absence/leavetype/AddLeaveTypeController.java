@@ -8,6 +8,11 @@ import org.zkoss.zul.Window;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.LeaveType;
+import pohaci.gumunda.titis.hrm.cgui.PTKP;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class AddLeaveTypeController extends GenericForwardComposer {
@@ -38,13 +43,10 @@ public class AddLeaveTypeController extends GenericForwardComposer {
 	public void onClick$btnSaveLeaveType() {
 		try
 		{
-			// LeaveType leaveType = new LeaveType();
-			// leaveType.setCode(code.getValue());
-			// leaveType.setDeduction(deduction.getValue());
-			// leaveType.setDescription(description.getValue());
-			// NUNUNG
-			parent.prepareList();
-			closeWindow();
+                    LeaveType leaveType = new LeaveType(code.getValue(), description.getValue(), true);
+                    HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createLeaveType(0, IDBConstants.MODUL_MASTER_DATA, leaveType);                    
+		   parent.prepareList();
+                    closeWindow();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

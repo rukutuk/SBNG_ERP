@@ -14,10 +14,12 @@ public class ShowLeaveTypeRenderer implements ListitemRenderer{
 		Listcell cell = new Listcell(leaveType.getCode());
 		cell.setParent(lstm);                
                 
-		cell = new Listcell(leaveType.getType());
-		cell.setParent(lstm);
-
 		cell = new Listcell(leaveType.getDescription());
+		cell.setParent(lstm);
+                String strDeduction="false";
+                if (leaveType.getDeduction())
+                    strDeduction = "true";
+		cell = new Listcell(strDeduction);
 		cell.setParent(lstm);
 
 		lstm.setAttribute("data", leaveType);
