@@ -13,7 +13,7 @@
                     <textbox id="textName" width="400px"/>
                 </row>
                 <label value="id :"/>
-                <datebox id="dateid" width="100px" format="dd-MM-yyyy"/>
+                <<datebox id="dateid" width="100px" format="dd-MM-yyyy"/>
                 <row> 
                     <label value="Description :"  />
                     <textbox id="textDescription" cols="80" rows="6"/>                         
