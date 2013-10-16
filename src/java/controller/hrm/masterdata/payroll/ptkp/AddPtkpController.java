@@ -35,7 +35,7 @@ public class AddPtkpController extends GenericForwardComposer {
 
     public void onClick$btnSavePTKP() {
         try {
-            PTKP ptkp = new PTKP(1, textName.getValue(), textDescription.getValue(), bdValueYearly.getValue());
+            PTKP ptkp = new PTKP(textName.getValue(), textDescription.getValue(), bdValueYearly.getValue());
             HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createPTKP(0, IDBConstants.MODUL_MASTER_DATA, ptkp);
             parent.prepareList();
             closeWindow();

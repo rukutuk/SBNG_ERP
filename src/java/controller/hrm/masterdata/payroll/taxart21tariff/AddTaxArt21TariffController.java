@@ -6,6 +6,10 @@ import java.util.Map;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.cgui.TaxArt21Tariff;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class AddTaxArt21TariffController extends GenericForwardComposer {
@@ -17,7 +21,6 @@ public class AddTaxArt21TariffController extends GenericForwardComposer {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-
 		Map map = Executions.getCurrent().getArg();
 		parent = (ShowTaxArt21TariffController) map.get("parent");
 		windowAddTaxArt21Tariff.doModal();
@@ -34,8 +37,8 @@ public class AddTaxArt21TariffController extends GenericForwardComposer {
 	public void onClick$btnSaveTaxArt21Tariff() {
 		try
 		{
-			// TaxArt21Tariff taxArt21Tariff = new TaxArt21Tariff();
-			// NUNUNG
+			TaxArt21Tariff leaveType = new TaxArt21Tariff(1, 1,1);
+                        HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createTaxArt21Tariff(0, IDBConstants.MODUL_MASTER_DATA, leaveType);                    
 			parent.prepareList();
 			closeWindow();
 		} catch (Exception ex) {

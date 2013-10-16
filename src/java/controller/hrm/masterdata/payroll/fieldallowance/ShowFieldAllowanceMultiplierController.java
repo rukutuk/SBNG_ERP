@@ -2,11 +2,15 @@ package controller.hrm.masterdata.payroll.fieldallowance;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
-import util.ZKUtil;
 import java.util.Map;
 import java.util.HashMap;
 import renderer.hrm.masterdata.payroll.fieldallowance.ShowFieldAllowanceMultiplierRenderer;
-import org.zkoss.zk.ui.Executions;;
+import org.zkoss.zk.ui.Executions;import org.zkoss.zul.ListModelList;
+
+import pohaci.gumunda.titis.hrm.cgui.AllowenceMultiplier;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import util.ConnectionUtil;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Toolbarbutton;
@@ -20,17 +24,17 @@ public class ShowFieldAllowanceMultiplierController extends GenericForwardCompos
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
-		super.doAfterCompose(comp);
-
-		prepareList();
+            super.doAfterCompose(comp);
+            prepareList();
 	}
 
 	public void prepareList() {
-		try {
-			// ZKUtil.renderListbox(listboxFieldAllowanceMultiplier, NUNUNG , new ShowFieldAllowanceMultiplierRenderer());
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+            try {
+                listboxFieldAllowanceMultiplier.setItemRenderer(new ShowFieldAllowanceMultiplierRenderer());
+                listboxFieldAllowanceMultiplier.setModel(new ListModelList(HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllAllowenceMultiplier(0, IDBConstants.MODUL_MASTER_DATA)));
+            } catch (Exception ex) {
+		ex.printStackTrace();
+            }
 	}
 
 	public void onClick$btnAddFieldAllowanceMultiplier() {
@@ -44,23 +48,21 @@ public class ShowFieldAllowanceMultiplierController extends GenericForwardCompos
 		{
 			Map map = new HashMap();
 			map.put("parent", this);
-			// NUNUNG
-			// map.put("obj", ((FieldAllowanceMultiplier)listboxFieldAllowanceMultiplier.getSelectedItem().getAttribute("data")));
+                        map.put("obj", ((AllowenceMultiplier)listboxFieldAllowanceMultiplier.getSelectedItem().getAttribute("data")));
 			Executions.createComponents("/hrm/masterdata/payroll/fieldallowance/edit_field_allowance_multiplier.zul", null, map);
 		}
 	}
 
 	public void onClick$btnDeleteFieldAllowanceMultiplier() {
-		if (listboxFieldAllowanceMultiplier.getSelectedItem() != null)
+            if (listboxFieldAllowanceMultiplier.getSelectedItem() != null)
 		{
-			// NUNUNG
-			// FieldAllowanceMultiplier fieldAllowanceMultiplier = (FieldAllowanceMultiplier)listboxFieldAllowanceMultiplier.getSelectedItem().getAttribute("data");
-			try {
-				// NUNUNG
-				prepareList();
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
+                    AllowenceMultiplier rv = (AllowenceMultiplier)listboxFieldAllowanceMultiplier.getSelectedItem().getAttribute("data");
+                    try {
+			HRMBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).deleteAllowenceMultiplier(0, IDBConstants.MODUL_MASTER_DATA, rv.getIndex());	
+                        prepareList();
+                    } catch (Exception ex) {
+			ex.printStackTrace();
+                    }
 		}
 	}
 }
