@@ -7,6 +7,10 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import pohaci.gumunda.titis.project.logic.ProjectBusinessLogic;
+import util.ConnectionUtil;
 
 /* @author Tata */
 public class AddPartnerGroupController extends GenericForwardComposer {
@@ -36,10 +40,8 @@ public class AddPartnerGroupController extends GenericForwardComposer {
 	public void onClick$btnSavePartnerGroup() {
 		try
 		{
-			// PartnerGroup partnerGroup = new PartnerGroup();
-			// partnerGroup.setDescription(description.getValue());
-			// partnerGroup.setName(name.getValue());
-			// NUNUNG
+			CompanyGroup cGroup = new CompanyGroup(1, name.getValue(), description.getValue());
+                        ProjectBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).createPartnerCompanyGroup(0, IDBConstants.MODUL_MASTER_DATA, cGroup);	
 			parent.prepareList();
 			closeWindow();
 		} catch (Exception ex) {

@@ -6,7 +6,51 @@ import util.ZKUtil;
 import java.util.Map;
 import java.util.HashMap;
 import renderer.project.masterdata.partner.partnerdata.ShowPartnerRenderer;
-import org.zkoss.zk.ui.Executions;;
+import org.zkoss.zk.ui.Executions;import org.zkoss.zul.ListModelList;
+;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import renderer.hrm.masterdata.customer.customergroup.ShowCustomerGroupRenderer;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.logic.ProjectBusinessLogic;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import util.ConnectionUtil;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.dbapi.IDBConstants;
+import org.zkoss.zul.Window;
+import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.CompanyGroup;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Toolbarbutton;
@@ -27,7 +71,8 @@ public class ShowPartnerController extends GenericForwardComposer {
 
 	public void prepareList() {
 		try {
-			// ZKUtil.renderListbox(listboxPartner, NUNUNG , new ShowPartnerRenderer());
+                    listboxPartner.setItemRenderer(new ShowPartnerRenderer());
+                    listboxPartner.setModel(new ListModelList(ProjectBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllPartner(0, IDBConstants.MODUL_MASTER_DATA)));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -46,6 +91,7 @@ public class ShowPartnerController extends GenericForwardComposer {
 			map.put("parent", this);
 			// NUNUNG
 			// map.put("obj", ((Partner)listboxPartner.getSelectedItem().getAttribute("data")));
+                        map.put("obj", ((CompanyGroup)listboxPartner.getSelectedItem().getAttribute("data")));
 			Executions.createComponents("/project/masterdata/partner/partnerdata/edit_partner.zul", null, map);
 		}
 	}

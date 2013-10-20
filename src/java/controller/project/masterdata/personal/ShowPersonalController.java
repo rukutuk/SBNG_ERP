@@ -2,14 +2,23 @@ package controller.project.masterdata.personal;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
-import util.ZKUtil;
 import java.util.Map;
 import java.util.HashMap;
 import renderer.project.masterdata.personal.ShowPersonalRenderer;
-import org.zkoss.zk.ui.Executions;;
+import org.zkoss.zk.ui.Executions;import org.zkoss.zul.ListModelList;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import util.ConnectionUtil;
+import org.zkoss.zul.Listbox;
+import pohaci.gumunda.titis.project.logic.ProjectBusinessLogic;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
+import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
+import util.ConnectionUtil;
 import org.zkoss.zul.Window;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Toolbarbutton;
+import pohaci.gumunda.titis.project.cgui.Personal;
 
 /* @author Tata */
 public class ShowPersonalController extends GenericForwardComposer {
@@ -27,7 +36,8 @@ public class ShowPersonalController extends GenericForwardComposer {
 
 	public void prepareList() {
 		try {
-			// ZKUtil.renderListbox(listboxPersonal, NUNUNG , new ShowPersonalRenderer());
+                    listboxPersonal.setItemRenderer(new ShowPersonalRenderer());
+                    listboxPersonal.setModel(new ListModelList(ProjectBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).getAllPersonal(0, IDBConstants.MODUL_MASTER_DATA)));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -53,11 +63,10 @@ public class ShowPersonalController extends GenericForwardComposer {
 	public void onClick$btnDeletePersonal() {
 		if (listboxPersonal.getSelectedItem() != null)
 		{
-			// NUNUNG
-			// Personal Personal = (Personal)listboxPersonal.getSelectedItem().getAttribute("data");
-			try {
-				// NUNUNG
-				prepareList();
+			Personal rv = (Personal)listboxPersonal.getSelectedItem().getAttribute("data");
+                    try {
+			ProjectBusinessLogic.getInstance(ConnectionUtil.getInstance().getConn()).deletePersonal(0, IDBConstants.MODUL_MASTER_DATA, rv.getIndex());	
+                        prepareList();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
