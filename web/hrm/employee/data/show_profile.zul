@@ -46,7 +46,7 @@
                     </row>
                     <row> 
                         <label value="UnitCode :"/>
-                        <textbox id="textUnit Code" width="400px"/>                     
+                        <textbox id="textUnitCode" width="400px"/>                     
                         <label value="Education :"/>
                         <textbox id="textEducation" width="400px"/>
                     </row>
