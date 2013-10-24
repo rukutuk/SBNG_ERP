@@ -27,7 +27,7 @@ public class ShowAccountController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
     Listbox listboxShowAccount;
-    Textbox textAccountName;
+    Textbox textAccountName, textAccountNo, textBankName, textBankAddress, textCurrency, textRemark;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -55,7 +55,13 @@ public class ShowAccountController extends GenericForwardComposer {
     
     private void setAccount(EmployeeAccount emp) throws Exception
     {
-        textAccountName.setValue(emp.getAccountName());
+        textAccountName.setValue(emp.getAccountName());        
+        textAccountNo.setValue(emp.getAccountNo());
+        textBankName.setValue(emp.getBankName());
+        textBankAddress.setValue(emp.getBankAddress());
+        if (emp.getCurrency()!=null)
+            textCurrency.setValue(emp.getCurrency().toString());
+        textRemark.setValue(emp.getRemark());
     }
     
     

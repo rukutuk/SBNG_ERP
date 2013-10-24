@@ -17,13 +17,28 @@ public class ShowAccountRenderer implements ListitemRenderer{
 
     public void render(Listitem lstm, Object o) throws Exception {
         EmployeeAccount emp = (EmployeeAccount) o;
-        //if (emp.getCertificate()!=null){
-            Listcell cell = new Listcell(emp.getAccountName());
-            cell.setParent(lstm);        
-        //if (emp.getCertificate()!=null){
-            cell = new Listcell("ase");
-            cell.setParent(lstm);        
-        //}                
+        
+        Listcell cell = new Listcell(emp.getAccountName());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getAccountName());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getBankName());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getBankAddress());
+        cell.setParent(lstm);
+        
+        if (emp.getCurrency()!= null)
+            cell = new Listcell(emp.getCurrency().toString());
+        else
+            cell = new Listcell("");
+        
+        cell = new Listcell(emp.getRemark());
+        
+        cell.setParent(lstm);
+        
         lstm.setAttribute("data", emp);
     }
 }
