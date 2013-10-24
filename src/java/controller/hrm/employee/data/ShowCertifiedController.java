@@ -9,16 +9,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Datebox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import pohaci.gumunda.titis.hrm.cgui.Certification;
 import pohaci.gumunda.titis.hrm.cgui.Employee;
-import pohaci.gumunda.titis.hrm.cgui.EmployeeEducation;
 import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
 import renderer.hrm.employee.data.ShowCertifiedRenderer;
-import renderer.hrm.employee.data.ShowEducationRenderer;
 import util.ConnectionUtil;
 
 /**
@@ -29,7 +28,8 @@ public class ShowCertifiedController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
     Listbox listboxShowCertification;
-    Textbox textCertificateNo;
+    Textbox textCertificateNo, textInstitution, textQualification, textDescription, textResult;
+    Datebox dateCertificateDate, dateStartCourseDate, dateEndCourseDate, dateExpiryDate;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -58,6 +58,19 @@ public class ShowCertifiedController extends GenericForwardComposer {
     private void setAccount(Certification emp) throws Exception
     {
         textCertificateNo.setValue(emp.getNo());
+        textInstitution.setValue(emp.getInstitute());
+        if (emp.getQualification()!=null)
+            textQualification.setValue(emp.getQualification().toString());        
+        textDescription.setValue(emp.getDescription()); 
+        textResult.setValue(emp.getResult());
+        if (emp.getDate()!=null)
+            dateCertificateDate.setValue(emp.getDate()); 
+        if (emp.getStartDate()!=null)
+            dateStartCourseDate.setValue(emp.getStartDate());
+        if (emp.getEndDate()!=null)
+            dateEndCourseDate.setValue(emp.getEndDate()); 
+        if (emp.getExpireDate() != null)
+            dateExpiryDate.setValue(emp.getExpireDate());
     }
         
 }

@@ -29,6 +29,29 @@ public class ShowEmploymentRenderer implements ListitemRenderer{
         cell = new Listcell(emp.getUnit().toString());
         cell.setParent(lstm);        
         
+        cell = new Listcell(emp.getReferenceNo());
+        cell.setParent(lstm);        
+        
+        cell = new Listcell(emp.getReferenceDate().toString());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getTMT().toString());
+        cell.setParent(lstm);                
+        
+        cell = new Listcell(emp.getEndDate().toString());
+        cell.setParent(lstm);                
+        
+        if (emp.getWorkAgreement()!=null){
+            cell = new Listcell(emp.getWorkAgreement().toString());
+        }else{
+            cell = new Listcell("");
+        }
+        
+        cell = new Listcell(emp.getDescription());
+        cell.setParent(lstm);
+        
+        cell.setParent(lstm);                
+        
         cell.addEventListener("onClick", new EventListener() {
             public void onEvent(Event event) {                
                 System.out.println("q===========");               

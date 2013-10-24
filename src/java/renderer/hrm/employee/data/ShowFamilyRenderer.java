@@ -19,10 +19,38 @@ public class ShowFamilyRenderer implements ListitemRenderer{
 
     public void render(Listitem lstm, Object o) throws Exception {
         EmployeeFamily emp = (EmployeeFamily) o;
-        if (emp.getRelation()!=null){
-            Listcell cell = new Listcell(emp.getRelation().toString());
-            cell.setParent(lstm);        
-        }                
+        Listcell cell = null;        
+        
+        if (emp.getRelation()!=null)
+            cell = new Listcell(emp.getRelation().toString());            
+        else
+            cell = new Listcell("");            
+        cell.setParent(lstm);        
+        
+        cell = new Listcell(emp.getName());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getBirthPlace().toString());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getBirthDate().toString());
+        cell.setParent(lstm);
+        
+        if (emp.getEducation()!=null)
+            cell = new Listcell(emp.getEducation().toString());
+        else
+            cell = new Listcell("");
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getJobTitle());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getCompany());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getCompany());
+        cell.setParent(lstm);
+        
         lstm.setAttribute("data", emp);
     }
 }

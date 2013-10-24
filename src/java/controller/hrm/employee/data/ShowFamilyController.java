@@ -28,7 +28,8 @@ public class ShowFamilyController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
     Listbox listboxShowFamily;
-    Textbox textName;
+    Textbox textName, textRelation, textBirthPlace, dateBirthDate, textEducation;
+    Textbox textRemark, textJobTitle, textCompany;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -47,18 +48,25 @@ public class ShowFamilyController extends GenericForwardComposer {
         try {
           listboxShowFamily.setItemRenderer(new ShowFamilyRenderer());
           listboxShowFamily.setModel(new ListModelList(emp));           
-          setEducation(emp[0]);
+          setFamily(emp[0]);
         } catch (Exception ex) {
            Logger.getLogger(ShowEmployeeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       }     
+       }
     }
     
-    private void setEducation(EmployeeFamily edu) throws Exception
+    private void setFamily(EmployeeFamily fam) throws Exception
     {
-        textName.setValue("name asep");
-//        //if (emp.getGrade()!=null)
-//            
+        textName.setValue(fam.getName());
+        if (fam.getRelation()!= null)
+            textRelation.setValue(fam.getRelation().toString());
+        textBirthPlace.setValue(fam.getBirthPlace());
+        dateBirthDate.setValue(fam.getBirthDate().toString());
+        if (fam.getEducation()!=null)
+            textEducation.setValue(fam.getEducation().toString());
+        textRemark.setValue(fam.getRemark()); 
+        textJobTitle.setValue(fam.getJobTitle());
+        textCompany.setValue(fam.getCompany());
     }
         
 }

@@ -27,7 +27,8 @@ public class ShowEducationController extends GenericForwardComposer {
     Employee m_emp = null;    
     Connection m_conn = null;
     Listbox listboxShowEducation;
-    Textbox textMajorStudy;
+    Textbox textMajorStudy, textGrade ;
+    Textbox textInstitute, textFrom, textTo, textGPA, textMaxGPA, textDescription;
     //Toolbarbutton btnAddEmployee, btnEditEmployee, btnDeletePTKP;
     //Button btnCancelPTKP;
     @Override
@@ -57,7 +58,16 @@ public class ShowEducationController extends GenericForwardComposer {
     {
         textMajorStudy.setValue(edu.getMajorStudy());
         //if (emp.getGrade()!=null)
-            
+        textMajorStudy.setValue(edu.getMajorStudy());
+        if (edu.getGrade()!=null)
+            textGrade.setValue(edu.getGrade().toString()); 
+        textMajorStudy.setValue(edu.getMajorStudy());
+        textInstitute.setValue(edu.getInstitute()); 
+        textFrom.setValue(edu.getFrom().toString()); 
+        textTo.setValue(edu.getTo().toString());
+        textGPA.setValue(String.valueOf(edu.getGPA()));
+        textMaxGPA.setValue(String.valueOf(edu.getMaxGPA()));
+        textDescription.setValue(edu.getDescription());            
     }
         
 }

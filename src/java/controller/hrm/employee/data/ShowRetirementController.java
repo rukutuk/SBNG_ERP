@@ -5,18 +5,12 @@
 package controller.hrm.employee.data;
 
 import java.sql.Connection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
-import org.zkoss.zul.ListModelList;
-import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 import pohaci.gumunda.titis.hrm.cgui.Employee;
-import pohaci.gumunda.titis.hrm.cgui.Employment;
 import pohaci.gumunda.titis.hrm.dbapi.IDBConstants;
 import pohaci.gumunda.titis.hrm.logic.HRMBusinessLogic;
-import renderer.hrm.employee.data.ShowEmploymentRenderer;
 import util.ConnectionUtil;
 /**
  *

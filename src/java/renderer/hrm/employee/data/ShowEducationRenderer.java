@@ -23,13 +23,27 @@ public class ShowEducationRenderer implements ListitemRenderer{
         Listcell cell = new Listcell(emp.getGrade().toString());
         cell.setParent(lstm);        
         
+        cell = new Listcell(emp.getMajorStudy());
+        cell.setParent(lstm);
         
-        cell.addEventListener("onClick", new EventListener() {
-            public void onEvent(Event event) {                
-                System.out.println("q===========");               
-            }
-        });        
-                
+        cell = new Listcell(emp.getInstitute());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getFrom().toString());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getTo().toString());
+        cell.setParent(lstm);
+        
+        cell = new Listcell(String.valueOf(emp.getGPA()));
+        cell.setParent(lstm);
+        
+        cell = new Listcell(String.valueOf(emp.getMaxGPA()));
+        cell.setParent(lstm);
+        
+        cell = new Listcell(emp.getDescription());
+        cell.setParent(lstm);
+        
         lstm.setAttribute("data", emp);
     }
 }
