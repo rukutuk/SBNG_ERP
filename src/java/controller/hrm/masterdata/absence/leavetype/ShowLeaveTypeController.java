@@ -32,9 +32,7 @@ public class ShowLeaveTypeController extends GenericForwardComposer {
 		try {
                     listboxLeaveType.setItemRenderer(new ShowLeaveTypeRenderer());                    
                     Connection conm = ConnectionUtil.getInstance().getConn();
-                    System.out.println("1======================================" + conm.getCatalog());
                     HRMBusinessLogic logic = HRMBusinessLogic.getInstance(conm);
-                    System.out.println("2======================================" + conm.getCatalog());
                     LeaveType[] leavetypes = logic.getAllLeaveType(0, IDBConstants.MODUL_MASTER_DATA);                    
                     listboxLeaveType.setModel(new ListModelList(leavetypes));
 		} catch (Exception ex) {

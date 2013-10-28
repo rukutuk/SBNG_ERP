@@ -36,7 +36,7 @@
         }*/
 
     </style>
-    <window id="windowProjectMonitoring" title="Project Monitoring"  >
+    <window id="windowProjectMonitoring" title="Project Monitoring"  apply="controller.project.monitoring.MonitoringController">
         <grid class="custom-grid">                                               
             <columns>
                 <column width="120px" align="right" />
